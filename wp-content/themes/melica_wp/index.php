@@ -44,7 +44,12 @@ if(is_category()) { // category page title
 
 	<!-- title -->
 	<?php if($page_title || melica_is_masonry()): ?>
-		<h1 class="section-title"><?php echo $page_title; ?></h1>
+		<?php if (is_category('aparitii-media')): ?>
+			<?php $page_title = ''; ?>
+			<h1 class="section-title display-none"><?php echo $page_title; ?></h1>
+		<?php else: ?>
+			<h1 class="section-title"><?php echo $page_title; ?></h1>
+		<?php endif; ?>
 	<?php endif; ?>
 
 	<!-- content -->

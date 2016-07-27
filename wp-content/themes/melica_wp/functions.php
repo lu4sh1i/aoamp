@@ -51,6 +51,7 @@ function melica_setup_theme() {
 	// register menus
 	$locations = array(
 		'primary-menu' => __( 'Primary Menu', MELICA_LG ),
+		'secondary-menu' => __( 'Secondary Menu', MELICA_LG),
 		'footer-menu'  => __( 'Footer Menu', MELICA_LG )
 	);
 	register_nav_menus( $locations );

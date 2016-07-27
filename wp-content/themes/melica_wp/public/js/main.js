@@ -69,7 +69,7 @@ var melicaJS = {
 
         if ($.fn.tinyNav) {
             // mobile navigation select init
-            $('#header ul.menu').tinyNav({header: 'Navigation'});
+            $('#header ul.menu').tinyNav({header: 'MENU'});
 
             // menu button action
             $('#menu-btn').on('click', function () {

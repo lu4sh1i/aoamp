@@ -74,13 +74,14 @@ ul.menu > li {
 /* show standard select-menu on non-ios devices */
 @media (max-width : @screen-sm-max) {
   .non-ios & .tinynav {
-    width     : auto; height : @line-height-computed;
+    width     : 200px; height : @line-height-computed;
     top       : 50%; right : @grid-gutter-width*2.5;
     .translate(0, -50%);
     .opacity(1);
+    color:#fff;
   }
 
-  .non-ios & #menu-btn { display : none; }
+  .non-ios & #menu-btn { display: none; }
 }
 
 /* hide menu button on large displays */

@@ -52,7 +52,7 @@
 		</div>
 		<!-- search form -->
 		<form role="search" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
-			<input type="text" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr( __( 'Type and hit enter', MELICA_LG ) ); ?>"/>
+			<input type="text" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr( __( 'Tastează și apasă enter', MELICA_LG ) ); ?>"/>
 		</form>
 	</div>
 	<div class="dark-brand">
@@ -60,7 +60,7 @@
 
 		
 		<!-- menu -->
-		<nav><?php if ( has_nav_menu( 'primary-menu' ) ):
+		<nav style="height:60px"><?php if ( has_nav_menu( 'primary-menu' ) ):
 				wp_nav_menu( array(
 					'theme_location' => 'primary-menu',
 					'container'      => false

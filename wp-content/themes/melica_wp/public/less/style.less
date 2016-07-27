@@ -292,7 +292,7 @@ ul.socials-list.invert li {
     }
 
     /* open state */
-    &.open { width: 20%;.opacity(1); }
+    &.open { width: 30%;.opacity(1); }
 
     /* mobile style */
     @media (max-width: @screen-sm-max) { &.open { width: 35%; } }
@@ -932,9 +932,9 @@ ul.pagination {
 
     position   : absolute;
     z-index    : 3;
-    top        : 0; left : 0;
+    top        : 0; left : 30px;
     margin-top : -@height;
-    text-align : center;
+    text-align : left;
     width      : 100%;
 
     /* inner helper element */
@@ -942,13 +942,13 @@ ul.pagination {
       position   : relative;
       display    : inline-block;
       font-size  : @font-size-large; font-weight : normal;
-      background : @bgcolor; color : #fff;
+      background : #2B3041; color : #fff;
       padding    : 0 @height/2; line-height : @height;
 
       &:after, &:before {
-        right          : -@height/2;
+        right          : -@height/3;
         top            : 50%;
-        border         : @height/2 solid @bgcolor;
+        // border         : @height/2 solid @bgcolor;
         content        : '';
         height         : 0; width : 0;
         position       : absolute;
