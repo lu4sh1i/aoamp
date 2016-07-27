@@ -1,0 +1,49 @@
+/*
+    Theme Name: Melica WP Child theme
+    Template: melica_wp
+    Description: Melica is a light blog template, crafted to showcase your content in an beautiful style.
+    Author: WPHunters
+    Author URI: http://wphunters.com
+    Version: 1.0
+    License: GNU General Public License version 1.0
+    License URI: https://www.gnu.org/licenses/gpl-1.0.html
+*/
+
+/* here comes your styles */
+
+#header {
+	background-color: #fff;
+}
+
+#header .container ul.menu > li a {
+	color:#C9A640;
+}
+#white-bg {
+	background-color:#fff;
+}
+
+.logo-size {
+	width: 300px;
+}
+
+.dark-brand {
+    background-color: #2B3041;
+}
+
+// #header + *:not(.header-nomargin) {
+//     margin-top: 100px;
+// }
+
+#header .container .header-brand { 
+    height: auto;
+}
+
+#header .container .toggle-buttons a {
+    line-height: 77px;
+}
+
+@media (min-width: 992px) {
+    #header .container .toggle-buttons {
+        height: 100%;
+    }
+}
