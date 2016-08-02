@@ -39,7 +39,7 @@ if ( ! isset( $GLOBALS['melica_pheader'] ) ) {
 			<?php endif; ?>
 
 			<article <?php post_class(); ?>>
-				<div class="container">
+				<div class="nopadding-sm">
 					<!-- page header -->
 					<?php if ( melica_has_sidebar() ) {
 						echo  ($GLOBALS['melica_pheader']);
