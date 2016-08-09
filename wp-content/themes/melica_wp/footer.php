@@ -1,18 +1,16 @@
 <!-- ========= Footer ========= -->
-<footer id="main-footer"><div class="container nopadding-sm animate sequence">
+<footer id="main-footer"><div class="footer-container nopadding-sm">
 
 		<!-- socials -->
-		<div><ul class="socials-list">
-				<?php foreach(melica_socials() as $social): ?>
-				<li><a href="<?php echo esc_url($social['url']) ?>">
-						<i class="fa <?php echo esc_attr($social['class']) ?>"></i>
-						<?php echo esc_attr($social['title']) ?>
-					</a></li>
-				<?php endforeach ?>
-			</ul></div>
+		
 
 		<!-- bottom menu -->
-		<nav><?php if(has_nav_menu( 'footer-menu' )):
+		<div class="col-md-3"><img src="http://localhost:8888/aoamp/wp-content/uploads/2016/08/light-long@2x.png" alt=""></div>
+		<div class="col-md-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ut molestiae ipsam rerum dolorem maiores unde tempora debitis blanditiis provident.</div>
+		<div class="col-md-3">
+			<h4 class="footer-heading text-uppercase">Link-uri Rapide</h4>
+			<nav>
+				<?php if(has_nav_menu( 'footer-menu' )):
 				wp_nav_menu( array(
 					'theme_location' => 'footer-menu',
 					'container' => false,
@@ -20,13 +18,15 @@
 				) );
 			else:
 				echo __( 'Define your footer menu in dashboard', MELICA_LG );
-			endif ?></nav>
+			endif ?>
+			</nav>
+		</div>
+		<div class="col-md-3"> <?= do_shortcode('[contact-form-7 id="413" title="Footer"]'); ?></div>
 
 		<!-- copyright -->
-		<div>
+		<div class="">
 			&copy;
 			<?php echo date('Y') ?>
-			<?php echo esc_html(melica_opt('logo_text', get_bloginfo('name'))) ?>.
 			<?php echo melica_opt('footer_text', null); ?>
 		</div>
 

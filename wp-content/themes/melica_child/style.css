@@ -87,10 +87,10 @@
     height: 80vh;
 }
 
-.post-376 {
+.post-376, .post-386, .post-401 {
     padding: 0;
+    margin-bottom:0;
 }
-
 
 
 .person {
@@ -107,4 +107,37 @@
   position: relative;
   display: inline;
   float: right;
+}
+
+
+#main-footer {
+    margin-top: 0 !important;
+    background-image: url("http://localhost:8888/aoamp/wp-content/uploads/2016/08/footer-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.footer-cf7 {
+    border-radius:4px;
+}
+
+input.footer-cf7 {
+    height: 32px;
+ }
+
+.margin-top-sm {
+    margin-top:15px;
+}
+
+.footer-heading {
+    margin-top: 0;
+    margin-left:10px;
+    color:#969696;
+}
+
+/*** HOMEPAGE ***/
+
+.elementor-element.elementor-element-03v1im2 {
+    background-position: 100px 340px !important;
+    box-shadow: inset 0px 20px 20px rgba(0, 0, 0, .2);
 }

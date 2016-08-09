@@ -30,7 +30,7 @@ if ( ! isset( $GLOBALS['melica_pheader'] ) ) {
 	<!-- content -->
 	
 
-		<main class="<?php echo esc_attr($layout_classes[0]); ?>">
+		<main class="">
 			<?php
 			// if page is fullwidth - make header awesome :)
 			if ( ! melica_has_sidebar() ): ?>

@@ -1363,21 +1363,21 @@ ul.pagination {
 #main-footer {
   background  : @footer-bg;
   color       : @footer-text-color;
-  margin-top  : 70px;
+  // margin-top  : 70px;
   font-weight : normal;
   font-size   : @font-size-small;
 
   /* containers padding & border */
-  > .container > * + * { border-top: 1px solid #464347; }
-  > .container > div {
-    text-align: center;
-    padding : 50px 0;
+  > .footer-container > * + * { border-top: 1px solid #464347; }
+  > .footer-container > div {
+    text-align: left;
+    padding : 50px 30px;
   }
 
   /* mobile style */
   @media (max-width : @screen-sm-max) {
     margin-top : 0;
-    > .container > div { padding: 25px 0; }
+    > .footer-container > div { padding: 25px 0; }
   }
 
   /* links */
@@ -1388,15 +1388,15 @@ ul.pagination {
 }
 
 /* navigation styling */
-#main-footer > .container > nav {
-  text-align : center;
+#main-footer > .footer-container > nav {
+  text-align : left;
   padding    : 25px 0;
 
   > ul {
     .reset-box-model(true);
 
     > li {
-      display        : inline-block;
+      display        : block;
       margin         : 5px 15px;
       text-transform : uppercase;
     }
