@@ -34,20 +34,17 @@ if ( ! isset( $GLOBALS['melica_pheader'] ) ) {
 		<main class="<?php echo esc_attr($layout_classes[0]); ?> nopadding-sm">
 			
 			<article <?php post_class(); ?>>
-				<div class="bg-consiliu">
+
 					<!-- page header -->
 					<?php if ( melica_has_sidebar() ) {
 						echo  ($GLOBALS['melica_pheader']);
 					} ?>
 					<div class="container">
-						<!-- title -->			
-	
 						<!-- page text -->
 						<?php the_content(); ?>
 						
 					</div>
-					
-				</div>
+
 
 				<!-- pagination -->
 				<?php wp_link_pages(); ?>
@@ -55,13 +52,8 @@ if ( ! isset( $GLOBALS['melica_pheader'] ) ) {
 			</article>
 		</main>
 
-		<?php if ( $show_sidebar ) : ?>
-			<aside class="<?php echo esc_attr($layout_classes[1]); ?>">
-				<?php dynamic_sidebar( 'primary-sidebar' ) ?>
-			</aside>
-		<?php endif; ?>
-
-
 </section>
 
-<?php get_footer(); ?>
+<?php 
+get_footer();
+?>

@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 <div class="events-bg">
 	<div class="dark-bg">
-		<h1 class="white text-center page-title-wd">
-			<?php wp_title(); ?>
-		</h1>
 	</div>
 </div>
 

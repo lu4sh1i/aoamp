@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ffdf8385-f933-49ee-9d36-30d16dcadb11" name="aoamp.com" url="http://ftp.aoamp.com">
+        <fileTransfer host="ftp.aoamp.com" port="21" password="dfc6dff8dfd4dff4dfdedf97dfcbdfccdfe7dfccdfcddfda" username="myftp@aoamp.com">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
