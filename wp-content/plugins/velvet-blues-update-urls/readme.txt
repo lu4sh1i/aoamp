@@ -2,9 +2,9 @@
 Contributors: justingreerbbi
 Donate link: https://justin-greer.com/
 Tags: permalinks, urls, links, update links, move wordpress, location, update urls, update permalinks, move, link, url, permalink, excerpt, content links, excerpt links, custom field links, meta, post meta
-Requires at least: 3.8
-Tested up to: 4.6
-Stable tag: 3.2.5
+Requires at least: 4.5
+Tested up to: 4.7
+Stable tag: 3.2.6
 License: GPLv2 or later
 
 Updates all urls and content links in your website.
@@ -53,6 +53,10 @@ Make sure that the plugin is activated and that you are an administrator level u
 1. The Admin screen for the plugin. screenshot-1.png
 
 == Change Log ==
+
+= 3.2.6 =
+* Tested with 4.6.
+* Version Update.
 
 = 3.2.5 =
 * This plugin is not maintained and updated by justingreerbbi (Justin Greer Interactive, LLC)

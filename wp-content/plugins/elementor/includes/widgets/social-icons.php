@@ -292,19 +292,12 @@ class Widget_Social_Icons extends Widget_Base {
 		?>
 		<div class="elementor-social-icons-wrapper">
 			<?php foreach ( $instance['social_icon_list'] as $item ) :
-				$has_link = ! empty( $item['link']['url'] );
 				$social = str_replace( 'fa fa-', '', $item['social'] );
-
-				if ( $has_link ) : ?>
-					<a class="elementor-social-icon-link" href="<?php echo esc_attr( $item['link']['url'] ); ?>">
-				<?php endif; ?>
-				<div class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr( $social ); ?>">
+				$target = $item['link']['is_external'] ? ' target="_blank"' : '';
+				?>
+				<a class="elementor-icon elementor-social-icon elementor-social-icon-<?php echo esc_attr( $social ); ?>" href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>>
 					<i class="<?php echo $item['social']; ?>"></i>
-				</div>
-				<?php if ( $has_link ) : ?>
-					</a>
-				<?php endif; ?>
-
+				</a>
 			<?php endforeach; ?>
 		</div>
 		<?php
@@ -313,23 +306,13 @@ class Widget_Social_Icons extends Widget_Base {
 	protected function content_template() {
 		?>
 		<div class="elementor-social-icons-wrapper">
-			<%
-			_.each( settings.social_icon_list, function( item ) {
-				var hasLink = item.link && item.link.url
-					social = item.social.replace( 'fa fa-', '' );
-
-				if ( hasLink ) { %>
-					<a class="elementor-social-icon-link" href="<%- item.link.url %>">
-				<% } %>
-				<div class="elementor-icon elementor-social-icon elementor-social-icon-<%- social %>">
+			<% _.each( settings.social_icon_list, function( item ) {
+				var link = item.link ? item.link.url : '',
+					social = item.social.replace( 'fa fa-', '' ); %>
+				<a class="elementor-icon elementor-social-icon elementor-social-icon-<%- social %>" href="<%- link %>">
 					<i class="<%- item.social %>"></i>
-				</div>
-				<% if ( hasLink ) { %>
-					</a>
-				<% }
-
-			} );
-			%>
+				</a>
+			<% } ); %>
 		</div>
 		<?php
 	}

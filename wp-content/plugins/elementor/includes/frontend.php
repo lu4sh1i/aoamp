@@ -82,7 +82,7 @@ class Frontend {
 
 		wp_register_script(
 			'waypoints',
-			ELEMENTOR_ASSETS_URL . 'admin/js/lib/waypoints.js',
+			ELEMENTOR_ASSETS_URL . 'lib/waypoints/waypoints' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -92,7 +92,7 @@ class Frontend {
 
 		wp_register_script(
 			'jquery-numerator',
-			ELEMENTOR_ASSETS_URL . 'admin/js/lib/jquery.numerator.js',
+			ELEMENTOR_ASSETS_URL . 'lib/jquery-numerator/jquery-numerator' . $suffix . '.js',
 			[
 				'jquery',
 			],
@@ -290,7 +290,7 @@ class Frontend {
 
 	protected function _parse_schemes_css_code() {
 		$return = '';
-		foreach ( Plugin::instance()->widgets_manager->get_register_widgets() as $widget_obj ) {
+		foreach ( Plugin::instance()->widgets_manager->get_registered_widgets() as $widget_obj ) {
 			foreach ( $widget_obj->get_scheme_controls() as $control ) {
 				$scheme_value = Plugin::instance()->schemes_manager->get_scheme_value( $control['scheme']['type'], $control['scheme']['value'] );
 				if ( empty( $scheme_value ) )
@@ -324,6 +324,9 @@ class Frontend {
 
 	public function apply_builder_in_content( $content ) {
 		$post_id = get_the_ID();
+		if ( post_password_required( $post_id ) )
+			return $content;
+
 		$data = Plugin::instance()->db->get_plain_builder( $post_id );
 		$edit_mode = Plugin::instance()->db->get_edit_mode( $post_id );
 

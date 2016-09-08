@@ -211,7 +211,7 @@ ul.socials-list.invert li {
 /* Header */
 /* ============================================================================= */
 
-@header-height: 60px;
+@header-height: 77px;
 #header {
   position         : fixed;
   top              : 0; left : 0;
@@ -305,15 +305,15 @@ ul.socials-list.invert li {
 
   /* toggle buttons */
   .toggle-buttons {
-    position   : absolute;
+    position   : relative;
     top        : 0; right : 0;
     z-index    : 3;
     text-align : center;
 
     @media (min-width: @screen-md) {
-      background: @gray-lighter;
+      background: transparent;
       padding: 0 10px;
-      min-width: 60px;
+      min-width: 80px;
     }
   }
 
@@ -321,7 +321,7 @@ ul.socials-list.invert li {
     display         : inline-block;
     height          : @header-height; line-height : @header-height;
     padding         : 0 @grid-gutter-width/2;
-    color           : @text-color;
+    color           : @brand-primary;
     text-decoration : none;
     font-size       : 20px;
     &:extend(.fast-transition);

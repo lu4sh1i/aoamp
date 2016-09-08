@@ -25,10 +25,10 @@ if ( ! isset( $GLOBALS['melica_pheader'] ) ) {
 }
 ?>
 
-<section class="nopadding-sm">
+<section class="">
 
 	<!-- content -->
-	
+
 
 		<main class="">
 			<?php
@@ -65,7 +65,7 @@ if ( ! isset( $GLOBALS['melica_pheader'] ) ) {
 			</aside>
 		<?php endif; ?>
 
-	
+
 
 </section>
 

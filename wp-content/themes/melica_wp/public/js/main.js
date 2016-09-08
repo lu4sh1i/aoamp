@@ -67,16 +67,16 @@ var melicaJS = {
     HeaderInit        : function ($) {
         'use strict';
 
-        if ($.fn.tinyNav) {
+        //if ($.fn.tinyNav) {
             // mobile navigation select init
-            $('#header ul.menu').tinyNav({header: 'MENU'});
+           // $('#header ul.menu').tinyNav({header: 'MENU'});
 
             // menu button action
-            $('#menu-btn').on('click', function () {
-                $('#header .tinynav:eq(0)').focus();
-                return false;
-            });
-        }
+            //$('#menu-btn').on('click', function () {
+              //  $('#header .tinynav:eq(0)').focus();
+              //  return false;
+           // });
+        //}
 
 
         // search button

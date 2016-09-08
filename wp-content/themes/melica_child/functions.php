@@ -16,3 +16,28 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 	return $existing_mimes;
 
 }
+
+
+
+// Adds a widget area to house a Polylang dropdown. See also accompanying css.
+if (function_exists('register_sidebar')) {
+    register_sidebar(array(
+        'name' => 'Extra Widget After Navbar',
+        'id' => 'extra-widget',
+        'description' => 'Extra widget after the navbar',
+        'before_widget' => '<div class="widget %2$s" id="%1$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+    ));
+}
+
+
+// Place the widget area after the navbar
+add_filter ('__after_navbar', 'add_my_widget');
+
+function add_my_widget() {
+    if (function_exists('dynamic_sidebar')) {
+        dynamic_sidebar('Extra Widget After Navbar');
+    }
+}

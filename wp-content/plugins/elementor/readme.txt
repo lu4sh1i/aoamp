@@ -2,8 +2,8 @@
 Contributors: pojo.me, KingYes, ariel.k, jzaltzberg, yehudah
 Tags: page builder, editor, builder, visual editor, front-end editor, design, drag and drop builder, front-end builder, landing page, page builder plugin, site builder, template builder, visual builder, website builder, wysiwyg
 Requires at least: 4.4
-Tested up to: 4.5
-Stable tag: 0.6.5
+Tested up to: 4.6
+Stable tag: 0.7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -11,34 +11,27 @@ The most advanced frontend drag & drop page builder. Create high-end, pixel perf
 
 == Description ==
 
-Elementor is the fastest free page builder, that enables you to design pages like never before possible.
-
 https://www.youtube.com/watch?v=kB4U67tiQLA
 
-With Elementor, we set out to create a unique page builder, with various advantages that set it apart.
+It's about time for a live page builder, with no limits of design. A page builder that delivers high-end page designs and advanced capabilities, never before seen on WordPress.
 
-= Instant drag and drop =
-The most frustrating thing about drag and drop, is the lag that occurs after the drop. We created the elementor so all dragging and dropping is perfect. No lags. No Jumps.
+It's time for **Elementor Page Builder**.
 
-= Advanced design capabilities =
-Create pages that have "the designer touch", by including features like parallax scroll, full width background images, advanced buttons, custom headers, slide in forms and more.
+= Faster. Much faster. =
+Instant reaction was a key feature we wanted to achieve. Instant drag & drop, instant live edit, instant page load. The speed of Elementor is not matched by any other page builder, free or paid. This makes the interface fun and easy to work with, as well as reduces the time it takes to design.
 
-= Responsive design =
-No designer should work twice on the same page. With Elementor, there's no need to create a separate version for mobile. This saves half the work and still results in 100% responsive design.
+= Live design. Truly live. =
+Never again work on the backend and guess what the frontend will look like. With Elementor, you edit the page and simultaneously see exactly how it looks like. Elementor features live editing that is truly live, with no need to press update or go to preview mode.
 
-= Works on the Frontend =
-Never again work on the backend and guess what the frontend will look like. With Elementor, you edit the site and simultaneously see how the exact site looks like.
+= Surprises you won't see anywhere else. =
+Create pages that have "the designer touch", by including unique features like box shadows, background overlays, hover and entrance animations, advanced buttons and more. We worked hard to create the perfect balance between full design capabilities and an intuitive and clean interface. You no longer need to use code, HTML, CSS or shortcode.
 
-= Gives total control with no hassle =
-We worked hard to create the perfect balance between full design capabilities and an intuitive and clean interface. You no longer need to use code, HTML, CSS or shortcode.
-
-= Works on any theme =
-Elementor works on any old or new theme. Switching between themes is no problem.
-
-= RTL supported, multilingual and translatable =
-We've integrated RTL and multi language support within the framework of Elementor, so you get a translated panel out of the box, as well as RTL typography support, and developer options to add even more languages.
+= NEW! Template Library. =
+We've added **Library**, which includes a collection of 20+ beautiful templates, made for you by our top notch designers. You can also save your own pages and sections, and reuse them on different pages, or export them to whole different websites.
 
 = 27 widgets and counting =
+We packed 27 of the most useful widgets into Elementor. True, that's way more than we had to offer, but we wanted to spare no widget from you, so you can reach the top of your design capabilities.
+
 - **Heading**. Add eye-catching headlines.
 - **Image**. Control the size, opacity and other settings of images.
 - **Text Editor**. A wysiwyg text editor, just like the WordPress editor.
@@ -61,12 +54,15 @@ We've integrated RTL and multi language support within the framework of Elemento
 - **HTML**. Insert code into the page.
 - **Menu Anchor**. Link any menu to this anchor.
 - **Sidebar**. Include any sidebar you create into the page.
-- **GoogleMaps**. Embed maps into the page.
+- **Google Maps**. Embed maps into the page.
 - **SoundCloud**. Add audio bits from SoundCloud.
 - **Divider**. A line that divides different elements in the page.
 - **Spacer**. A space that divides the various elements.
 - **Columns**. Create inner columns within the column.
 - **And counting...**
+
+= Multilingual & RTL supported. =
+We've integrated RTL and multi language support within the framework of Elementor, so you get a translated panel out of the box, as well as RTL typography support, and developer options to add even more languages.
 
 = Translations =
 - [German](https://translate.wordpress.org/locale/de/default/wp-plugins/elementor) - (de_DE)
@@ -148,12 +144,60 @@ No. Elementor supports WordPress 4.4 or greater, and is compatible with PHP 5.4 
 
 == Screenshots ==
 
-1. Elementor's intuitive and user friendly page builder panel lets you edit the page live and real time.
-2. Control every element of styling for the Heading widget.
-3. Choose which column structure you wish to add to a new section.
-4. Settings page.
+1. **Drag & Drop.** Our instant drag & drop lets you easily place every element anywhere on the page.
+2. **Truly Live Edit.** Changes on the page are displayed in realtime. No need to press update or preview.
+3. **Resize Columns.** Set the column width exactly how you want it by dragging its corner left and right.
+4. **Responsive Design.** Switch between desktop, tablet & mobile displays to view the page across devices.
+5. **Template Library.** Choose one of our pre-designed templates, crafted to fit every purpose.
 
 == Changelog ==
+
+= 0.7.4 - 24.08.2016 =
+* New! - Added Shortcode widget
+* Tweak! - Now compatible with password protected pages
+* Fixed! - Library RTL bug in template preview
+* Fixed! - Bug with `p` tag in Icon Box widget
+* Fixed! - Style in Icon widget
+* Fixed! - HTML widget now is working
+
+= 0.7.3 - 19.08.2016 =
+* Fixed! - Allow columns gap on mobile
+* Fixed! - Content position for section
+
+= 0.7.2 - 18.08.2016 =
+* Tweak! - Hide add section area for mobile device
+* Tweak! - Optimization assets files
+* Fixed! - Intrusive Slick Carousel CSS ([#424](https://github.com/pojome/elementor/issues/424))
+* Fixed! - Display content position for custom height section option
+
+= 0.7.1 - 17.08.2016 =
+* Tweak! - Added column/content position for inner section
+* Tweak! - Block template library in the frontend
+* Fixed! - Export template ([topic](https://wordpress.org/support/topic/template-export-not-working-in-070))
+* Fixed! - Fatal Error during update plugin ([#412](https://github.com/pojome/elementor/issues/412))
+* Fixed! - Separating link attributes from classes attributes in Icon Box widget ([#414](https://github.com/pojome/elementor/issues/414))
+* Fixed! - Allow column and content position for mobile
+* Fixed! - Removed `overflow: hidden` from `#elementor-inner` ([#415](https://github.com/pojome/elementor/issues/415))
+* Fixed! - Aspect ratio issue for Video widget ([topic](https://wordpress.org/support/topic/video-embeds-have-black-bars-top-and-bottom))
+* Fixed! - Image Carousel "slides to show" on tablet ([#372](https://github.com/pojome/elementor/issues/372))
+* Fixed! - RTL style for library
+* Fixed! - Handle errors on wrong export action
+
+= 0.7.0 - 16.08.2016 =
+* New! - Template Library ([Release Post](https://elementor.com/introducing-template-library/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme))
+* New! - Save your pages and sections to template library
+* New! - 20+ beautifully pre-designed templates
+* New! - Export / Import templates
+* Fixed! - Changed code structure in Icon/Icon-Box/Social-Icons widget templates
+* Fixed! - Screen size for hidden tablet class
+* Fixed! - Blank page detection in empty pages for editing
+
+= 0.6.6 - 11.08.2016 =
+* Tweak! - Improved Drag & Drop area to new section
+* Tweak! - Make changes in new section
+* Fixed! - Resize columns with Widgets using iframe (YouTube, Google Maps, etc)
+* Fixed! - Adding columns widget in 'Add new Section' area
+* Fixed! - Allow blank target link for social-icons widget
 
 = 0.6.5 - 08.08.2016 =
 * Tweak! - Added border and box shadow controls for Image widget

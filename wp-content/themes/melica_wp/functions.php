@@ -148,7 +148,7 @@ function melica_less_vars( $vars ) {
 	                                 . $vars['font-family-sans-serif'];
 
 	// colors
-	$vars['brand-primary']     = melica_opt( 'primary_color', '#c59b69' );
+	$vars['brand-primary']     = melica_opt( 'primary_color', '#c9a640' );
 	$vars['text-color']        = melica_opt( 'main_text_color', '#000000' );
 	$vars['headings-color']    = melica_opt( 'headings_color', 'inherit' );
 	$vars['footer-bg']         = melica_opt( 'footer_bg', '#1a171b' );

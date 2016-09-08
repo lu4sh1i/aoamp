@@ -6,7 +6,7 @@ Description: This plugin <strong>updates all urls in your website</strong> by re
 Author: justingreerbbi
 Author URI: https://justin-greer.com
 Author Email: info@justin-greer.com
-Version: 3.2.5
+Version: 3.2.6
 License: GPLv2 or later
 Text Domain: velvet-blues-update-urls
 */

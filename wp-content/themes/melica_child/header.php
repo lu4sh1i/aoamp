@@ -31,52 +31,46 @@
 <!-- ========= Header ========= -->
 <header id="header" class="big-grid">
 
-	<div class="container" id="white-bg">
-
-		<!-- logo -->
-		<div class="logo-wd">
-			<a href="<?php echo home_url() ?>" class="center-block logo-size header-brand <?php if(melica_opt('header_mode') == 'inverted') echo 'inverted'; ?>">
-			<?php if ( melica_opt( 'image_as_logo' ) ): ?>
-				<img class="image-bg" src="<?php echo melica_opt( 'image_logo' ) ?>"/>
-		
-				
-			<?php else: ?>
-				<h1><?php echo melica_opt( 'logo_text', get_bloginfo( 'name' ) ) ?></h1>
-			<?php endif ?>
-			</a>
-		</div>
-		<!-- toggle buttons -->
-		<div class="toggle-buttons">
-			<a class="fa fa-search" id="search-btn" href="#"></a>
-			<a class="fa fa-bars" id="menu-btn" href="#"></a>
-		</div>
-		<!-- search form -->
-		<form role="search" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
-			<input type="text" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr( __( 'Tastează și apasă enter', MELICA_LG ) ); ?>"/>
-		</form>
-	</div>
 	<div class="dark-brand">
 		<div class="container header-container">
+			<div class="logo-wd">
+				<a href="<?php echo home_url() ?>" class="center-block logo-size header-brand <?php if(melica_opt('header_mode') == 'inverted') echo 'inverted'; ?>">
+				<?php if ( melica_opt( 'image_as_logo' ) ): ?>
+					<img class="image-bg" src="<?php echo melica_opt( 'image_logo' ) ?>"/>
+				<?php else: ?>
+					<h1><?php echo melica_opt( 'logo_text', get_bloginfo( 'name' ) ) ?></h1>
+				<?php endif ?>
+				</a>
+			</div>
 
-		
-		<!-- menu -->
-		<nav style="height:60px"><?php if ( has_nav_menu( 'primary-menu' ) ):
-				wp_nav_menu( array(
-					'theme_location' => 'primary-menu',
-					'container'      => false
-				) );
-			else:
-				echo '<ul class="menu"><li><a href="#">' . __( 'Define your primary menu in dashboard', MELICA_LG ) . '</a></li></ul>';
-			endif ?></nav>
+			<!-- toggle buttons -->
+			<div class="toggle-buttons pull-right">
+				<a class="fa fa-search" id="search-btn" href="#"></a>
+				<a class="fa fa-bars" id="menu-btn" href="#"></a>
+			</div>
+			<!-- menu -->
+			<nav><?php if ( has_nav_menu( 'primary-menu' ) ):
+					wp_nav_menu( array(
+						'theme_location' => 'primary-menu',
+						'container'      => false
+					) );
+				else:
+					echo '<ul class="menu"><li><a href="#">' . __( 'Define your primary menu in dashboard', MELICA_LG ) . '</a></li></ul>';
+				endif ?></nav>
 
 
-		
+			<!-- search form -->
+			<form role="search" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="pull-right">
+				<input type="text" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr( __( 'Tastează și apasă enter', MELICA_LG ) ); ?>"/>
+			</form>
 
 
-		
+
+
+
+		</div>
 	</div>
-	</div>
-	
+
 
 	<!-- shadow element -->
 	<div class="shadow"></div>
