@@ -154,7 +154,7 @@ class Admin {
 	 * @return array
 	 */
 	public function add_edit_in_dashboard( $actions, $post ) {
-		if ( User::is_current_user_can_edit( $post->ID ) ) {
+		if ( User::is_current_user_can_edit( $post->ID ) && 'builder' === Plugin::instance()->db->get_edit_mode( $post->ID ) ) {
 			$actions['edit_with_elementor'] = sprintf(
 				'<a href="%s">%s</a>',
 				Utils::get_edit_link( $post->ID ),
@@ -194,6 +194,10 @@ class Admin {
 
 		if ( ! current_user_can( 'update_plugins' ) )
 			return;
+
+		if ( ! in_array( get_current_screen()->id, [ 'toplevel_page_elementor', 'edit-elementor_library', 'elementor_page_elementor-system-info', 'dashboard' ] ) ) {
+			return;
+		}
 
 		// Check if have any upgrades
 		$update_plugins = get_site_transient( 'update_plugins' );
@@ -291,6 +295,7 @@ class Admin {
 			'elementor-admin-feedback',
 			'ElementorAdminFeedbackArgs',
 			[
+				'is_tracker_opted_in' => Tracker::is_allow_track(),
 				'i18n' => [
 					'submit_n_deactivate' => __( 'Submit & Deactivate', 'elementor' ),
 					'skip_n_deactivate' => __( 'Skip & Deactivate', 'elementor' ),

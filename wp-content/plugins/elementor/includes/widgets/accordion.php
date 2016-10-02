@@ -18,11 +18,10 @@ class Widget_Accordion extends Widget_Base {
 	}
 
 	protected function _register_controls() {
-		$this->add_control(
+		$this->start_controls_section(
 			'section_title',
 			[
 				'label' => __( 'Accordion', 'elementor' ),
-				'type' => Controls_Manager::SECTION,
 			]
 		);
 
@@ -41,7 +40,6 @@ class Widget_Accordion extends Widget_Base {
 						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
 					],
 				],
-				'section' => 'section_title',
 				'fields' => [
 					[
 						'name' => 'tab_title',
@@ -68,15 +66,15 @@ class Widget_Accordion extends Widget_Base {
 				'label' => __( 'View', 'elementor' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
-				'section' => 'section_title',
 			]
 		);
 
-		$this->add_control(
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'section_title_style',
 			[
 				'label' => __( 'Accordion', 'elementor' ),
-				'type' => Controls_Manager::SECTION,
 				'tab' => self::TAB_STYLE,
 			]
 		);
@@ -86,8 +84,6 @@ class Widget_Accordion extends Widget_Base {
 			[
 				'label' => __( 'Icon Alignment', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'tab' => self::TAB_STYLE,
-				'section' => 'section_title_style',
 				'default' => is_rtl() ? 'right' : 'left',
 				'options' => [
 					'left' => __( 'Left', 'elementor' ),
@@ -226,6 +222,8 @@ class Widget_Accordion extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_section();
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -251,7 +249,7 @@ class Widget_Accordion extends Widget_Base {
 						</span>
 						<?php echo $item['tab_title']; ?>
 					</div>
-					<div class="elementor-accordion-content" data-section="<?php echo $counter; ?>"><?php echo $item['tab_content']; ?></div>
+					<div class="elementor-accordion-content" data-section="<?php echo $counter; ?>"><?php echo $this->parse_text_editor( $item['tab_content'], $item ); ?></div>
 				</div>
 			<?php
 				$counter++;
@@ -262,24 +260,24 @@ class Widget_Accordion extends Widget_Base {
 
 	protected function content_template() {
 		?>
-		<div class="elementor-accordion" data-active-section="<%- editSettings.activeItemIndex ? editSettings.activeItemIndex : 0 %>">
-			<%
+		<div class="elementor-accordion" data-active-section="{{ editSettings.activeItemIndex ? editSettings.activeItemIndex : 0 }}">
+			<#
 			if ( settings.tabs ) {
 				var counter = 1;
-				_.each( settings.tabs, function( item ) { %>
+				_.each( settings.tabs, function( item ) { #>
 					<div class="elementor-accordion-item">
-						<div class="elementor-accordion-title" data-section="<%- counter %>">
-							<span class="elementor-accordion-icon elementor-accordion-icon-<%- settings.icon_align %>">
+						<div class="elementor-accordion-title" data-section="{{ counter }}">
+							<span class="elementor-accordion-icon elementor-accordion-icon-{{ settings.icon_align }}">
 								<i class="fa"></i>
 							</span>
-							<%= item.tab_title %>
+							{{{ item.tab_title }}}
 						</div>
-						<div class="elementor-accordion-content" data-section="<%- counter %>"><%= item.tab_content %></div>
+						<div class="elementor-accordion-content" data-section="{{ counter }}">{{{ item.tab_content }}}</div>
 					</div>
-				<%
+				<#
 					counter++;
 				} );
-			} %>
+			} #>
 		</div>
 		<?php
 	}

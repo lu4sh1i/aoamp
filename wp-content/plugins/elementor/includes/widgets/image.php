@@ -38,7 +38,7 @@ class Widget_Image extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'align',
 			[
 				'label' => __( 'Alignment', 'elementor' ),
@@ -327,9 +327,9 @@ class Widget_Image extends Widget_Base {
 
 	protected function content_template() {
 		?>
-		<% if ( '' !== settings.image.url ) { %>
-			<div class="elementor-image<%= settings.shape ? ' elementor-image-shape-' + settings.shape : '' %>">
-				<%
+		<# if ( '' !== settings.image.url ) { #>
+			<div class="elementor-image{{ settings.shape ? ' elementor-image-shape-' + settings.shape : '' }}">
+				<#
 				var imgClass = '', image_html = '',
 					hasCaption = '' !== settings.caption,
 					image_html = '';
@@ -366,9 +366,9 @@ class Widget_Image extends Widget_Base {
 				}
 
 				print( image_html );
-				%>
+				#>
 			</div>
-		<% } %>
+		<# } #>
 		<?php
 	}
 

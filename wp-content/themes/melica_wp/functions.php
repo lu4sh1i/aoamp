@@ -90,7 +90,7 @@ require_once 'wp-less-compilator/wp-less.php';
 require_once 'admin/widgets/socials.php';
 require_once 'admin/widgets/mailchimp.php';
 require_once 'admin/widgets/popular_posts.php';
-require_once 'admin/widgets/about_me.php';
+//require_once 'admin/widgets/about_me.php';
 require_once 'admin/widgets/wphunters-insta-wdgt/wphunters-insta-wdgt.php';
 
 // load shortcodes

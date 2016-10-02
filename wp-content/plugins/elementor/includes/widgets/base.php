@@ -17,6 +17,19 @@ abstract class Widget_Base extends Element_Base {
 		return $this->get_title();
 	}
 
+	public function parse_text_editor( $content, $instance = [] ) {
+		$content = apply_filters( 'widget_text', $content, $instance );
+
+		$content = shortcode_unautop( $content );
+		$content = do_shortcode( $content );
+
+		if ( $GLOBALS['wp_embed'] instanceof \WP_Embed ) {
+			$content = $GLOBALS['wp_embed']->autoembed( $content );
+		}
+
+		return $content;
+	}
+
 	protected function _after_register_controls() {
 		parent::_after_register_controls();
 
@@ -29,7 +42,7 @@ abstract class Widget_Base extends Element_Base {
 			]
 		);
 
-	    $this->add_control(
+	    $this->add_responsive_control(
 	        '_margin',
 	        [
 	            'label' => __( 'Margin', 'elementor' ),
@@ -43,7 +56,7 @@ abstract class Widget_Base extends Element_Base {
 	        ]
 	    );
 
-	    $this->add_control(
+	    $this->add_responsive_control(
 	        '_padding',
 	        [
 	            'label' => __( 'Padding', 'elementor' ),
@@ -181,15 +194,14 @@ abstract class Widget_Base extends Element_Base {
 			'hide_desktop',
 			[
 				'label' => __( 'Hide On Desktop', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'type' => Controls_Manager::SWITCHER,
 				'tab' => self::TAB_ADVANCED,
 				'section' => '_section_responsive',
 				'default' => '',
 				'prefix_class' => 'elementor-',
-				'options' => [
-					'' => __( 'Show', 'elementor' ),
-					'hidden-desktop' => __( 'Hide', 'elementor' ),
-				],
+				'label_on' => 'Hide',
+				'label_off' => 'Show',
+				'return_value' => 'hidden-desktop',
 			]
 		);
 
@@ -197,15 +209,14 @@ abstract class Widget_Base extends Element_Base {
 			'hide_tablet',
 			[
 				'label' => __( 'Hide On Tablet', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'type' => Controls_Manager::SWITCHER,
 				'tab' => self::TAB_ADVANCED,
 				'section' => '_section_responsive',
 				'default' => '',
 				'prefix_class' => 'elementor-',
-				'options' => [
-					'' => __( 'Show', 'elementor' ),
-					'hidden-tablet' => __( 'Hide', 'elementor' ),
-				],
+				'label_on' => 'Hide',
+				'label_off' => 'Show',
+				'return_value' => 'hidden-tablet',
 			]
 		);
 
@@ -213,15 +224,14 @@ abstract class Widget_Base extends Element_Base {
 			'hide_mobile',
 			[
 				'label' => __( 'Hide On Mobile', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'type' => Controls_Manager::SWITCHER,
 				'tab' => self::TAB_ADVANCED,
 				'section' => '_section_responsive',
 				'default' => '',
 				'prefix_class' => 'elementor-',
-				'options' => [
-					'' => __( 'Show', 'elementor' ),
-					'hidden-phone' => __( 'Hide', 'elementor' ),
-				],
+				'label_on' => 'Hide',
+				'label_off' => 'Show',
+				'return_value' => 'hidden-phone',
 			]
 		);
 	}
@@ -230,6 +240,8 @@ abstract class Widget_Base extends Element_Base {
 		ob_start();
 		$this->content_template();
 		$content_template = ob_get_clean();
+
+		$content_template = apply_filters( 'elementor/widget/print_template', $content_template,  $this );
 
 		if ( empty( $content_template ) ) {
 			return;
@@ -251,7 +263,13 @@ abstract class Widget_Base extends Element_Base {
 		?>
 		<div class="elementor-widget-container">
 			<?php
+			ob_start();
 			$this->render( $instance );
+			$content = ob_get_clean();
+
+			$content = apply_filters( 'elementor/widget/render_content', $content, $instance, $this );
+
+			echo $content;
 			?>
 		</div>
 		<?php

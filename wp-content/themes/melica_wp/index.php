@@ -11,11 +11,6 @@ if(is_single() || is_page()) {
 	$layout_classes[0] .= ' animate-paragraphs';
 }
 
-$masonry_grid = '';
-if ( melica_is_masonry() ) {
-	$masonry_grid = 'data-masonry="' . esc_attr(melica_get_masonry_cols()) . '"';
-}
-
 
 // title
 if(is_category()) { // category page title

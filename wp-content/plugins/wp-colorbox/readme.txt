@@ -3,8 +3,8 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: lightbox, overlay, colorbox, image, images, gallery, youtube, vimeo, video, videos, photo, photos, picture, javascript, jquery, media, links, modal, template, theme, Style, photography, lightview 
 Requires at least: 3.0
-Tested up to: 4.5
-Stable tag: 1.0.8
+Tested up to: 4.6
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,10 @@ here, url is the link to the media file that you wish to open in lightbox and hy
 
 `[wp_colorbox_media url="http://example.com/wp-content/uploads/images/overlay.jpg" title="overlay image" type="image" hyperlink="click here to pop up image"]`
 
+**Specify an Alternate Text for an Image**
+
+`[wp_colorbox_media url="http://example.com/wp-content/uploads/images/overlay.jpg" title="overlay image" type="image" hyperlink="http://example.com/wp-content/uploads/images/thumb.jpg" alt="Thumbnail image description"]`
+
 **Apply Custom CSS**
 
 You can specify your own CSS class in the shortcode to customize a text/image link.
@@ -98,6 +102,9 @@ For screenshots please visit the [WordPress Colorbox](https://noorsplugin.com/20
 none
 
 == Changelog ==
+
+= 1.0.9 =
+* Alt (alternate text) attribute can now be specified in the shortcode for a thumbnail image.
 
 = 1.0.8 =
 * Added translation option so the plugin can take advantage of language packs

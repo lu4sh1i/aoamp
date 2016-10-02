@@ -33,6 +33,7 @@ function melica_enqueue_scripts() {
 		'/js/assets/smoothScroll.js',
 		'/js/assets/fastclick.js',
 		'/js/assets/instansive.js',
+		'/js/assets/bootstrap.js',
 		'/js/main.js',
 	);
 

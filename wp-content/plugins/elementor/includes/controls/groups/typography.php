@@ -32,14 +32,13 @@ class Group_Control_Typography extends Group_Control_Base {
 			'label' => _x( 'Size', 'Typography Control', 'elementor' ),
 			'type' => Controls_Manager::SLIDER,
 			'size_units' => [ 'px', 'em', 'rem' ],
-			'default' => [
-				'size' => 15,
-			],
 			'range' => [
 				'px' => [
 					'min' => 1,
+					'max' => 200,
 				],
 			],
+			'responsive' => true,
 			'selector_value' => 'font-size: {{SIZE}}{{UNIT}}',
 		];
 
@@ -103,6 +102,7 @@ class Group_Control_Typography extends Group_Control_Base {
 					'min' => 1,
 				],
 			],
+			'responsive' => true,
 			'size_units' => [ 'px', 'em' ],
 			'selector_value' => 'line-height: {{SIZE}}{{UNIT}}',
 		];
@@ -117,6 +117,7 @@ class Group_Control_Typography extends Group_Control_Base {
 					'step' => 0.1,
 				],
 			],
+			'responsive' => true,
 			'selector_value' => 'letter-spacing: {{SIZE}}{{UNIT}}',
 		];
 
@@ -149,6 +150,19 @@ class Group_Control_Typography extends Group_Control_Base {
 				],
 			],
 		];
+
+		/*
+		 *  Custom Typography switch control version
+		 *
+		$typography_control = [
+			'typography' => [
+				'label' => _x( 'Custom Typography', 'Typography Control', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => '',
+				'return_value' => 'custom',
+			],
+		];
+		*/
 
 		$controls = $typography_control + $controls;
 

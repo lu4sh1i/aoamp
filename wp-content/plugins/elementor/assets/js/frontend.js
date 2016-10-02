@@ -1,29 +1,15 @@
-/*! elementor - v0.7.4 - 24-08-2016 */
+/*! elementor - v0.9.3 - 26-09-2016 */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var ElementsHandler;
 
 ElementsHandler = function( $ ) {
 	var registeredHandlers = {},
-		registeredGlobalHandlers = [],
-		flagEditorMode = false,
-		scopeWindow = window;
+		registeredGlobalHandlers = [];
 
 	var runGlobalHandlers = function( $scope ) {
 		$.each( registeredGlobalHandlers, function() {
-			this.call( $scope, $, scopeWindow );
+			this.call( $scope, $ );
 		} );
-	};
-
-	this.setEditorMode = function( mode ) {
-		flagEditorMode = mode;
-	};
-
-	this.setScopeWindow = function( window ) {
-		scopeWindow = window;
-	};
-
-	this.isEditorMode = function() {
-		return flagEditorMode;
 	};
 
 	this.addHandler = function( widgetType, callback ) {
@@ -47,19 +33,21 @@ ElementsHandler = function( $ ) {
 			return;
 		}
 
-		registeredHandlers[ elementType ].call( $scope, $, scopeWindow );
+		registeredHandlers[ elementType ].call( $scope, $ );
 	};
 };
 
 module.exports = ElementsHandler;
 
 },{}],2:[function(require,module,exports){
+/* global elementorFrontendConfig */
 ( function( $ ) {
 	var ElementsHandler = require( 'elementor-frontend/elements-handler' ),
 	    Utils = require( 'elementor-frontend/utils' );
 
 	var ElementorFrontend = function() {
-		var self = this;
+		var self = this,
+			scopeWindow = window;
 
 		var elementsDefaultHandlers = {
 			accordion: require( 'elementor-frontend/handlers/accordion' ),
@@ -90,58 +78,121 @@ module.exports = ElementsHandler;
 			} );
 		};
 
+		this.config = elementorFrontendConfig;
+
+		this.getScopeWindow = function() {
+			return scopeWindow;
+		};
+
+		this.setScopeWindow = function( window ) {
+			scopeWindow = window;
+		};
+
+		this.isEditMode = function() {
+			return self.config.isEditMode;
+		};
+
 		this.elementsHandler = new ElementsHandler( $ );
+
 		this.utils = new Utils( $ );
 
 		this.init = function() {
 			addGlobalHandlers();
+
 			addElementsHandlers();
 
 			self.utils.insertYTApi();
 
 			runElementsHandlers();
 		};
+
+		// Based on underscore function
+		this.throttle = function( func, wait ) {
+			var timeout,
+				context,
+				args,
+				result,
+				previous = 0;
+
+			var later = function() {
+				previous = Date.now();
+				timeout = null;
+				result = func.apply( context, args );
+
+				if ( ! timeout ) {
+					context = args = null;
+				}
+			};
+
+			return function() {
+				var now = Date.now(),
+					remaining = wait - ( now - previous );
+
+				context = this;
+				args = arguments;
+
+				if ( remaining <= 0 || remaining > wait ) {
+					if ( timeout ) {
+						clearTimeout( timeout );
+						timeout = null;
+					}
+
+					previous = now;
+					result = func.apply( context, args );
+
+					if ( ! timeout ) {
+						context = args = null;
+					}
+				} else if ( ! timeout ) {
+					timeout = setTimeout( later, remaining );
+				}
+
+				return result;
+			};
+		};
 	};
 
 	window.elementorFrontend = new ElementorFrontend();
 } )( jQuery );
 
-jQuery( elementorFrontend.init );
+jQuery( function() {
+	if ( ! elementorFrontend.isEditMode() ) {
+		elementorFrontend.init();
+	}
+} );
 
 },{"elementor-frontend/elements-handler":1,"elementor-frontend/handlers/accordion":3,"elementor-frontend/handlers/alert":4,"elementor-frontend/handlers/counter":5,"elementor-frontend/handlers/global":6,"elementor-frontend/handlers/image-carousel":7,"elementor-frontend/handlers/menu-anchor":8,"elementor-frontend/handlers/progress":9,"elementor-frontend/handlers/section":10,"elementor-frontend/handlers/tabs":11,"elementor-frontend/handlers/toggle":12,"elementor-frontend/handlers/video":13,"elementor-frontend/utils":14}],3:[function(require,module,exports){
+var activateSection = function( sectionIndex, $accordionTitles ) {
+	var $activeTitle = $accordionTitles.filter( '.active' ),
+		$requestedTitle = $accordionTitles.filter( '[data-section="' + sectionIndex + '"]' ),
+		isRequestedActive = $requestedTitle.hasClass( 'active' );
+
+	$activeTitle
+		.removeClass( 'active' )
+		.next()
+		.slideUp();
+
+	if ( ! isRequestedActive ) {
+		$requestedTitle
+			.addClass( 'active' )
+			.next()
+			.slideDown();
+	}
+};
+
 module.exports = function( $ ) {
 	var $this = $( this ),
 		defaultActiveSection = $this.find( '.elementor-accordion' ).data( 'active-section' ),
-		$accordionTitles = $this.find( '.elementor-accordion-title' ),
-		$activeTitle = $accordionTitles.filter( '.active' );
-
-	var activateSection = function( sectionIndex ) {
-		var $requestedTitle = $accordionTitles.filter( '[data-section="' + sectionIndex + '"]' ),
-			isRequestedActive = $requestedTitle.hasClass( 'active' );
-
-		$activeTitle
-			.removeClass( 'active' )
-			.next()
-			.slideUp();
-
-		if ( ! isRequestedActive ) {
-			$requestedTitle
-				.addClass( 'active' )
-				.next()
-				.slideDown();
-
-			$activeTitle = $requestedTitle;
-		}
-	};
+		$accordionTitles = $this.find( '.elementor-accordion-title' );
 
 	if ( ! defaultActiveSection ) {
 		defaultActiveSection = 1;
 	}
 
-	activateSection( defaultActiveSection );
+	activateSection( defaultActiveSection, $accordionTitles );
 
 	$accordionTitles.on( 'click', function() {
-		activateSection( this.dataset.section );
+		activateSection( this.dataset.section, $accordionTitles );
 	} );
 };
 
@@ -165,7 +216,7 @@ module.exports = function( $ ) {
 
 },{}],6:[function(require,module,exports){
 module.exports = function() {
-	if ( elementorFrontend.elementsHandler.isEditorMode() ) {
+	if ( elementorFrontend.isEditMode() ) {
 		return;
 	}
 
@@ -219,7 +270,7 @@ module.exports = function( $ ) {
 
 },{}],8:[function(require,module,exports){
 module.exports = function( $ ) {
-	if ( elementorFrontend.elementsHandler.isEditorMode() ) {
+	if ( elementorFrontend.isEditMode() ) {
 		return;
 	}
 
@@ -266,25 +317,17 @@ module.exports = function( $ ) {
 };
 
 },{}],10:[function(require,module,exports){
-module.exports = function( $, scopeWindow ) {
+var BackgroundVideo = function( $, $backgroundVideoContainer ) {
 	var player,
-		ui = {
-			backgroundVideoContainer: this.find( '.elementor-background-video-container' )
-		},
+		elements = {},
 		isYTVideo = false;
 
-	if ( ! ui.backgroundVideoContainer.length ) {
-		return;
-	}
-
-	ui.backgroundVideo = ui.backgroundVideoContainer.children( '.elementor-background-video' );
-
 	var calcVideosSize = function() {
-		var containerWidth = ui.backgroundVideoContainer.outerWidth(),
-			containerHeight = ui.backgroundVideoContainer.outerHeight(),
+		var containerWidth = $backgroundVideoContainer.outerWidth(),
+			containerHeight = $backgroundVideoContainer.outerHeight(),
 			aspectRatioSetting = '16:9', //TEMP
 			aspectRatioArray = aspectRatioSetting.split( ':' ),
-			aspectRatio = aspectRatioArray[0] / aspectRatioArray[1],
+			aspectRatio = aspectRatioArray[ 0 ] / aspectRatioArray[ 1 ],
 			ratioWidth = containerWidth / aspectRatio,
 			ratioHeight = containerHeight * aspectRatio,
 			isWidthFixed = containerWidth / containerHeight > aspectRatio;
@@ -296,15 +339,14 @@ module.exports = function( $, scopeWindow ) {
 	};
 
 	var changeVideoSize = function() {
-		var $video = isYTVideo ? $( player.getIframe() ) : ui.backgroundVideo,
+		var $video = isYTVideo ? $( player.getIframe() ) : elements.$backgroundVideo,
 			size = calcVideosSize();
 
 		$video.width( size.width ).height( size.height );
 	};
 
 	var prepareYTVideo = function( YT, videoID ) {
-
-		player = new YT.Player( ui.backgroundVideo[0], {
+		player = new YT.Player( elements.$backgroundVideo[ 0 ], {
 			videoId: videoID,
 			events: {
 				onReady: function() {
@@ -326,23 +368,111 @@ module.exports = function( $, scopeWindow ) {
 			}
 		} );
 
+		$( elementorFrontend.getScopeWindow() ).on( 'resize', changeVideoSize );
 	};
 
-	var videoID = ui.backgroundVideo.data( 'video-id' );
+	var initElements = function() {
+		elements.$backgroundVideo = $backgroundVideoContainer.children( '.elementor-background-video' );
+	};
 
-	if ( videoID ) {
-		isYTVideo = true;
+	var run = function() {
+		var videoID = elements.$backgroundVideo.data( 'video-id' );
 
-		elementorFrontend.utils.onYoutubeApiReady( function( YT ) {
-			setTimeout( function() {
-				prepareYTVideo( YT, videoID );
-			}, 1 );
+		if ( videoID ) {
+			isYTVideo = true;
+
+			elementorFrontend.utils.onYoutubeApiReady( function( YT ) {
+				setTimeout( function() {
+					prepareYTVideo( YT, videoID );
+				}, 1 );
+			} );
+		} else {
+			elements.$backgroundVideo.one( 'canplay', changeVideoSize );
+		}
+	};
+
+	var init = function() {
+		initElements();
+		run();
+	};
+
+	init();
+};
+
+var StretchedSection = function( $, $section ) {
+	var elements = {},
+		settings = {};
+
+	var stretchSection = function() {
+		// Clear any previously existing css associated with this script
+		$section.css( {
+			'width': 'auto',
+			'left': '0'
 		} );
-	} else {
-		ui.backgroundVideo.one( 'canplay', changeVideoSize );
-	}
 
-	$( scopeWindow ).on( 'resize', changeVideoSize );
+		if ( ! $section.hasClass( 'elementor-section-stretched' ) ) {
+			return;
+		}
+
+		var sectionWidth = elements.$scopeWindow.width(),
+			sectionOffset = $section.offset().left,
+			correctOffset = sectionOffset;
+
+		if ( elements.$sectionContainer.length ) {
+			var containerOffset = elements.$sectionContainer.offset().left;
+
+			sectionWidth = elements.$sectionContainer.outerWidth();
+
+			if ( sectionOffset > containerOffset ) {
+				correctOffset = sectionOffset - containerOffset;
+			} else {
+				correctOffset = 0;
+			}
+		}
+
+		if ( ! settings.is_rtl ) {
+			correctOffset = -correctOffset;
+		}
+
+		$section.css( {
+			'width': sectionWidth + 'px',
+			'left': correctOffset + 'px'
+		} );
+	};
+
+	var initSettings = function() {
+		settings.sectionContainerSelector = elementorFrontend.config.stretchedSectionContainer;
+		settings.is_rtl = elementorFrontend.config.is_rtl;
+	};
+
+	var initElements = function() {
+		elements.scopeWindow = elementorFrontend.getScopeWindow();
+		elements.$scopeWindow = $( elements.scopeWindow );
+		elements.$sectionContainer = $( elements.scopeWindow.document ).find( settings.sectionContainerSelector );
+	};
+
+	var bindEvents = function() {
+		elements.$scopeWindow.on( 'resize', stretchSection );
+	};
+
+	var init = function() {
+		initSettings();
+		initElements();
+		bindEvents();
+		stretchSection();
+	};
+
+	init();
+};
+
+module.exports = function( $ ) {
+	new StretchedSection( $, this );
+
+	var $backgroundVideoContainer = this.find( '.elementor-background-video-container' );
+
+	if ( $backgroundVideoContainer ) {
+		new BackgroundVideo( $, $backgroundVideoContainer );
+	}
 };
 
 },{}],11:[function(require,module,exports){

@@ -380,7 +380,7 @@ class Widget_Icon_box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'text_align',
 			[
 				'label' => __( 'Alignment', 'elementor' ),
@@ -406,7 +406,7 @@ class Widget_Icon_box extends Widget_Base {
 				'section' => 'section_style_content',
 				'tab' => self::TAB_STYLE,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-icon-box-wrapper .elementor-icon-box-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .elementor-icon-box-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -435,6 +435,26 @@ class Widget_Icon_box extends Widget_Base {
 				'type' => Controls_Manager::HEADING,
 				'section' => 'section_style_content',
 				'tab' => self::TAB_STYLE,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_bottom_space',
+			[
+				'label' => __( 'Title Spacing', 'elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'section' => 'section_style_content',
+				'tab' => self::TAB_STYLE,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-icon-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -474,6 +494,7 @@ class Widget_Icon_box extends Widget_Base {
 				'type' => Controls_Manager::HEADING,
 				'section' => 'section_style_content',
 				'tab' => self::TAB_STYLE,
+				'separator' => 'before',
 			]
 		);
 
@@ -544,19 +565,19 @@ class Widget_Icon_box extends Widget_Base {
 
 	protected function content_template() {
 		?>
-		<% var link = settings.link.url ? 'href="' + settings.link.url + '"' : '',
-				iconTag = link ? 'a' : 'span'; %>
+		<# var link = settings.link.url ? 'href="' + settings.link.url + '"' : '',
+				iconTag = link ? 'a' : 'span'; #>
 		<div class="elementor-icon-box-wrapper">
 			<div class="elementor-icon-box-icon">
-				<<%= iconTag + ' ' + link %> class="elementor-icon elementor-animation-<%- settings.hover_animation %>">
-					<i class="<%- settings.icon %>"></i>
-				</<%= iconTag %>>
+				<{{{ iconTag + ' ' + link }}} class="elementor-icon elementor-animation-{{ settings.hover_animation }}">
+					<i class="{{ settings.icon }}"></i>
+				</{{{ iconTag }}}>
 			</div>
 			<div class="elementor-icon-box-content">
-				<<%= settings.title_size %> class="elementor-icon-box-title">
-					<<%= iconTag + ' ' + link %>><%= settings.title_text %></<%= iconTag %>>
-				</<%= settings.title_size %>>
-				<p class="elementor-icon-box-description"><%= settings.description_text %></p>
+				<{{{ settings.title_size }}} class="elementor-icon-box-title">
+					<{{{ iconTag + ' ' + link }}}>{{{ settings.title_text }}}</{{{ iconTag }}}>
+				</{{{ settings.title_size }}}>
+				<p class="elementor-icon-box-description">{{{ settings.description_text }}}</p>
 			</div>
 		</div>
 		<?php

@@ -111,7 +111,7 @@ class Widget_Social_Icons extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'align',
 			[
 				'label' => __( 'Alignment', 'elementor' ),
@@ -132,7 +132,9 @@ class Widget_Social_Icons extends Widget_Base {
 					],
 				],
 				'default' => 'center',
-				'prefix_class' => 'elementor-align-',
+				'selectors' => [
+					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 
@@ -306,13 +308,13 @@ class Widget_Social_Icons extends Widget_Base {
 	protected function content_template() {
 		?>
 		<div class="elementor-social-icons-wrapper">
-			<% _.each( settings.social_icon_list, function( item ) {
+			<# _.each( settings.social_icon_list, function( item ) {
 				var link = item.link ? item.link.url : '',
-					social = item.social.replace( 'fa fa-', '' ); %>
-				<a class="elementor-icon elementor-social-icon elementor-social-icon-<%- social %>" href="<%- link %>">
-					<i class="<%- item.social %>"></i>
+					social = item.social.replace( 'fa fa-', '' ); #>
+				<a class="elementor-icon elementor-social-icon elementor-social-icon-{{ social }}" href="{{ link }}">
+					<i class="{{ item.social }}"></i>
 				</a>
-			<% } ); %>
+			<# } ); #>
 		</div>
 		<?php
 	}

@@ -33,7 +33,7 @@
 	<div class="container">
 
 		<!-- logo -->
-		<a href="<?php echo home_url() ?>" class="header-brand <?php if(melica_opt('header_mode') == 'inverted') echo 'inverted'; ?>">
+		<a href="<?php echo home_url() ?>" class="header-brand">
 			<?php if ( melica_opt( 'image_as_logo' ) ): ?>
 				<img class="image-bg" src="<?php echo melica_opt( 'image_logo' ) ?>"/>
 				<h1><?php echo esc_html( get_bloginfo( 'name' ) ) ?></h1>

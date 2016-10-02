@@ -36,7 +36,7 @@
 			<div class="logo-wd">
 				<a href="<?php echo home_url() ?>" class="center-block logo-size header-brand <?php if(melica_opt('header_mode') == 'inverted') echo 'inverted'; ?>">
 				<?php if ( melica_opt( 'image_as_logo' ) ): ?>
-					<img class="image-bg" src="<?php echo melica_opt( 'image_logo' ) ?>"/>
+					<img class="image-bg aoamp-logo" src="<?php echo melica_opt( 'image_logo' ) ?>"/>
 				<?php else: ?>
 					<h1><?php echo melica_opt( 'logo_text', get_bloginfo( 'name' ) ) ?></h1>
 				<?php endif ?>
@@ -45,8 +45,8 @@
 
 			<!-- toggle buttons -->
 			<div class="toggle-buttons pull-right">
-				<a class="fa fa-search" id="search-btn" href="#"></a>
-				<a class="fa fa-bars" id="menu-btn" href="#"></a>
+				<a class="fa fa-search hidden-xs hidden-sm" id="search-btn" href="#"></a>
+				<a class="fa fa-bars hidden-xs hidden-sm" id="menu-btn" href="#"></a>
 			</div>
 			<!-- menu -->
 			<nav><?php if ( has_nav_menu( 'primary-menu' ) ):

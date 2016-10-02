@@ -1,4 +1,4 @@
-/*! elementor - v0.7.4 - 24-08-2016 */
+/*! elementor - v0.9.3 - 26-09-2016 */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /* global jQuery, ElementorAdminFeedbackArgs */
 ( function( $ ) {
@@ -52,13 +52,15 @@
 								callback: _.bind( self.sendFeedback, self )
 							} );
 
-							this.addButton( {
-								name: 'skip',
-								text: ElementorAdminFeedbackArgs.i18n.skip_n_deactivate,
-								callback: function() {
-									self.deactivate();
-								}
-							} );
+							if ( ! ElementorAdminFeedbackArgs.is_tracker_opted_in ) {
+								this.addButton( {
+									name: 'skip',
+									text: ElementorAdminFeedbackArgs.i18n.skip_n_deactivate,
+									callback: function() {
+										self.deactivate();
+									}
+								} );
+							}
 						}
 					} );
 				}

@@ -56,8 +56,9 @@ class Widget_Heading extends Widget_Base {
 			[
 				'label' => __( 'Size', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'large',
+				'default' => 'default',
 				'options' => [
+					'default' => __( 'Default', 'elementor' ),
 					'small' => __( 'Small', 'elementor' ),
 					'medium' => __( 'Medium', 'elementor' ),
 					'large' => __( 'Large', 'elementor' ),
@@ -89,7 +90,7 @@ class Widget_Heading extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'align',
 			[
 				'label' => __( 'Alignment', 'elementor' ),
@@ -190,7 +191,7 @@ class Widget_Heading extends Widget_Base {
 
 	protected function content_template() {
 		?>
-		<%
+		<#
 		if ( '' !== settings.title ) {
 			var title_html = '<' + settings.header_size  + ' class="elementor-heading-title elementor-size-' + settings.size + '">' + settings.title + '</' + settings.header_size + '>';
 		}
@@ -200,7 +201,7 @@ class Widget_Heading extends Widget_Base {
 		}
 
 		print( title_html );
-		%>
+		#>
 		<?php
 	}
 }

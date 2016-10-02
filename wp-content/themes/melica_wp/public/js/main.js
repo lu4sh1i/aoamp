@@ -20,8 +20,8 @@ var melicaJS = {
         var $body = $('body');
         $body.jpreLoader({
             autoClose : true,
-            loaderVPos: 0
-            //onetimeLoad: true
+            loaderVPos: 0,
+            onetimeLoad: true
         }, function () {
             $(window).trigger('jqOnLoad').trigger('srUpdate');
         });
@@ -67,16 +67,16 @@ var melicaJS = {
     HeaderInit        : function ($) {
         'use strict';
 
-        //if ($.fn.tinyNav) {
-            // mobile navigation select init
-           // $('#header ul.menu').tinyNav({header: 'MENU'});
+        // if ($.fn.tinyNav) {
+        //     // mobile navigation select init
+        //    $('#header ul.menu').tinyNav({header: 'MENU'});
 
-            // menu button action
-            //$('#menu-btn').on('click', function () {
-              //  $('#header .tinynav:eq(0)').focus();
-              //  return false;
-           // });
-        //}
+        //     // menu button action
+        //     $('#menu-btn').on('click', function () {
+        //        $('#header .tinynav:eq(0)').focus();
+        //        return false;
+        //    });
+        // }
 
 
         // search button
