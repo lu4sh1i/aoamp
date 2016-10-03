@@ -65,6 +65,8 @@
   background-size: cover;
   background-position: center center;
   margin-bottom: -200px;
+  background-color: #222;
+  background-attachment: fixed;
 }
 
 .page-title-wd {
@@ -132,17 +134,24 @@
   margin-bottom:0;
 }
 
-
-#main-footer {
+.aoamp-footer {
   margin-top: 0 !important;
-  background-image: url("http://localhost:8899/aoamp/wp-content/uploads/2016/08/footer-bg.png");
+  background-image: url("http://www.aoamp.com/wp-content/uploads/2016/10/footer-bg.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  padding:50px 0;
+  background-color: #222;
+  box-shadow: inset 0px 22px 70px -10px;
+  background-attachment: fixed;
 }
 
 .footer-cf7 {
   border-radius:4px;
+}
+
+.footer-white {
+  color: white;
 }
 
 input.footer-cf7 {
@@ -160,12 +169,12 @@ input.footer-cf7 {
 }
 
 .socials {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 .footer-facebook {
   background-color: #2B3041;
-  padding: 15px 20px;
+  padding: 7px 12px;
   border-radius: 100px;
   font-size: 1.5em
 }
@@ -214,5 +223,38 @@ input.footer-cf7 {
   width:280px;
 }
 
+#header .container ul.menu {
+  right: 73px;
+  position: relative;
+}
 
 
+.see-more {
+  border-bottom: 2px solid #007CCC;
+  color:#007CCC;
+}
+
+.see-more:hover {
+  transition: all .2s ease-in;
+  color:#004877;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #004877;
+}
+
+
+.no-posts-available {
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  height: 30vh;
+  margin-bottom: 500px;
+}
+
+.no-posts-available h2 {
+  margin: auto;
+}
+
+
+.intro-text {
+  margin: 65px 0;
+}

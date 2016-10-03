@@ -43,21 +43,24 @@
 				</a>
 			</div>
 
-			<!-- toggle buttons -->
 			<div class="toggle-buttons pull-right">
 				<a class="fa fa-search hidden-xs hidden-sm" id="search-btn" href="#"></a>
 				<a class="fa fa-bars hidden-xs hidden-sm" id="menu-btn" href="#"></a>
 			</div>
 			<!-- menu -->
-			<nav><?php if ( has_nav_menu( 'primary-menu' ) ):
-					wp_nav_menu( array(
-						'theme_location' => 'primary-menu',
-						'container'      => false
-					) );
-				else:
-					echo '<ul class="menu"><li><a href="#">' . __( 'Define your primary menu in dashboard', MELICA_LG ) . '</a></li></ul>';
-				endif ?></nav>
+			<nav>
+				<?php if ( has_nav_menu( 'primary-menu' ) ):
+						wp_nav_menu( array(
+							'theme_location' => 'primary-menu',
+							'container'      => false
+						) );
+					else:
+						echo '<ul class="menu"><li><a href="#">' . __( 'Define your primary menu in dashboard', MELICA_LG ) . '</a></li></ul>';
+				endif ?>
 
+			</nav>
+
+<!-- toggle buttons -->
 
 			<!-- search form -->
 			<form role="search" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="pull-right">

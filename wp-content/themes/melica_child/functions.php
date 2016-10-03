@@ -41,3 +41,17 @@ function add_my_widget() {
         dynamic_sidebar('Extra Widget After Navbar');
     }
 }
+
+
+
+function searchfilter($query) {
+
+    if ($query->is_search && !is_admin() ) {
+        $query->set('post_type',array('post','page','events','media-appearance','press-release'));
+    }
+
+    return $query;
+}
+
+add_filter('pre_get_posts','searchfilter');
+

@@ -21,7 +21,7 @@ if(is_category()) { // category page title
 
 } else if(is_search()) { // search page
 	$page_title = melica_custom_archive_title(
-		__( 'Search results for: ', MELICA_LG ) . esc_html( get_search_query() )
+		__( 'Rezultatele căutării pentru: ', MELICA_LG ) . esc_html( get_search_query() )
 	);
 
 } else if(is_page() && !is_front_page() && !is_home()) { // for static pages

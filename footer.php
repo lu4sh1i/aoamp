@@ -21,7 +21,7 @@
 				<h4 class="footer-heading text-uppercase">Social</h4>
 				<div class="socials">
 					<a href="https://www.facebook.com/AOAMP-259379517778356/"><i class="fa fa-facebook footer-facebook"></i></a>
-					
+
 				</div>
 			</div>
 			<div class="col-md-4"> <?= do_shortcode('[contact-form-7 id="413" title="Footer"]'); ?></div>

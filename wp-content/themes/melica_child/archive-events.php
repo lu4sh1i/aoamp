@@ -1,14 +1,12 @@
 <?php get_header(); ?>
-<div class="events-bg">
-	<div class="dark-bg">
-	</div>
-</div>
 
-<?php 
-	
-	$args = array( 'post_type' => 'evenimente', 'posts_per_page' => 10 );
-	$loop = new WP_Query( $args );
-	while ( $loop->have_posts() ) : $loop->the_post();
+<div class="events-bg"> <div class="dark-bg"></div> </div>
+
+<?php
+
+
+	if (have_posts()) {
+		while ( have_posts() ) : the_post();
 	?>
 	<div class="container">
 		<div class="eveniment">
@@ -18,11 +16,7 @@
 			 		<h1><a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>"><?php the_title() ?></a></h1>
 					<div class="subline">
 							<time datetime="<?php the_time( 'Y-m-d' ) ?>"><?php the_time( 'F j, Y' ) ?></time>
-							<span><?php printf(
-									__( 'By <a href="%s">%s</a>', MELICA_LG ),
-									esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-									get_the_author()
-								) ?></span>
+							<span><?php printf(__( 'By <a href="%s">%s</a>', MELICA_LG ), esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() ) ?></span>
 					</div>
 				</div>
 				<?php get_template_part( 'inc/p-excerpt', get_post_format() ); ?>
@@ -32,11 +26,23 @@
 			 </article>
 		</div>
 	</div>
-	 <?php 
+	 <?php
 	endwhile;
+	} else {
+		$output = "";
+		$output .= "<div class=\"container\">";
+		$output .= "<div class=\"no-posts-available animated fadeInDown\">";
+		$output .= "<h2 class=\"text-center \"> ". __("Nici un eveniment", MELICA_LG) . "</h2>";
+		$output .= "</div>";
+		$output .= "</div>";
+		echo $output;
+	}
+  ?>
 
- ?>
 
-<?php 
+
+
+
+<?php
 get_footer();
 ?>
