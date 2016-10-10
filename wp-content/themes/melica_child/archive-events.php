@@ -11,6 +11,24 @@
 
 		?>
 		<div class="eveniment col-xs-4">
+		<div class="event-date-container">
+		    <?php
+
+		        $dateformatstring = "d M, Y";
+		        $unixtimestamp = strtotime(get_field('event_date'));
+
+		        if (get_field('event_date')) {
+		                echo '<h4 class="event-date">';
+		                echo date_i18n($dateformatstring, $unixtimestamp);
+		                echo '</h4>';
+		            }
+		            else {
+		                echo "";
+		            }
+
+
+		    ?>
+		</div>
 			 <article <?php post_class(); ?>>
 			 	<?php get_template_part( 'inc/event-header', melica_get_pf_template() ); ?>
 			 	<div class="meta">

@@ -261,3 +261,21 @@ input.footer-cf7 {
 .intro-text {
   margin: 65px 0;
 }
+
+
+.event-date-container {
+  position: absolute;
+  z-index: 99;
+  top: -8px;
+  left:12%;
+  background-color: #c9a640;
+  padding: 26px 20px 10px 20px;
+}
+
+.event-date {
+  text-transform: uppercase;
+}
+
+.event-date:nth-word(2) {
+  font-size: 29px;
+}

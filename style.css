@@ -34,7 +34,7 @@
 //     margin-top: 100px;
 // }
 
-#header .container .header-brand { 
+#header .container .header-brand {
     height: auto;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .my-wrapper {
-    
+
 }
 
 .bg-consiliu {
@@ -177,4 +177,19 @@ input.footer-cf7 {
 .elementor-element.elementor-element-03v1im2 {
     background-position: 100px 340px !important;
     box-shadow: inset 0px 20px 20px rgba(0, 0, 0, .2);
+}
+
+
+.event-date-container {
+  background-color: #ddd;
+  height: 100%;
+  padding: 26px 20px 10px 20px;
+}
+
+.event-date {
+  text-transform: uppercase;
+}
+
+.event-date::nth-word(2) {
+  font-size: 20px;
 }
