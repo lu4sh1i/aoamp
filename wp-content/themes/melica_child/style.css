@@ -254,6 +254,9 @@ input.footer-cf7 {
   margin: auto;
 }
 
+.empty-space-50 {
+  margin-top: 50px !important;
+}
 
 .intro-text {
   margin: 65px 0;

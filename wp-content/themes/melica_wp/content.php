@@ -40,7 +40,7 @@ if ( is_single() && ! melica_has_sidebar() ): ?>
 	<?php else: ?>
 		<!-- read more -->
 		<div class="text-center read-more">
-			<a class="btn btn-primary small" href="<?php the_permalink() ?>"><?php _e( 'Read more', MELICA_LG ) ?></a>
+			<a class="btn btn-primary small" href="<?php the_permalink() ?>"><?php _e( 'Vezi Mai mult', MELICA_LG ) ?></a>
 		</div>
 	<?php endif; ?>
 

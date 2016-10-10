@@ -49,7 +49,9 @@ if(is_category()) { // category page title
 
 	<!-- content -->
 	<div class="row">
-
+	<?php
+		$masonry_grid = "";
+	 ?>
 		<main class="<?php echo esc_attr($layout_classes[0]); ?>" <?php echo $masonry_grid; ?>>
 			<?php get_template_part('loop'); ?>
 		</main>
