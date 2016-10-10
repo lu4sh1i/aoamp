@@ -46,6 +46,7 @@
   line-height: 77px;
 }
 
+
 @media (min-width: 992px) {
   #header .container .toggle-buttons {
       height: 100%;
@@ -279,3 +280,193 @@ input.footer-cf7 {
 .event-date:nth-word(2) {
   font-size: 29px;
 }
+
+/* Interactive words styles */
+
+.avantaje-aoamp {
+
+}
+
+
+.obiective {
+  padding: 100px 0;
+}
+
+.word-wrap {border: 1px solid white; padding: 15px; }
+.word-large {color: #fff; }
+.word-desc {color: #ddd; }
+.word {color: bisque; }
+.gold {color: goldenrod; -webkit-transition: color .5s; -o-transition: color .5s; transition: color .5s; }
+.black {color: #000; }
+.word {padding: 20px; }
+.simple-words { min-height: 460px }
+.simple-words > h2 {display: inline-block; }
+.simple-words h2 a {font-size: 22px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; padding:0 0 7px 17px; }
+/* comunicare */ .simple-words h2:nth-child(1) a {position: absolute; right: 12%; bottom: 18%; font-size: 16px; }
+/* conexiune */ .simple-words h2:nth-child(2) a {position: absolute; top: 29%; left: 21%; font-size: 19px; }
+/* informare */ .simple-words h2:nth-child(3) a {position: absolute; top: 14%; right: 12%; font-size: 25px; }
+/* advocacy */ .simple-words h2:nth-child(4) a {position: absolute; top: 63%; left: 6%; font-size: 25px; }
+/* dezvoltare */ .simple-words h2:nth-child(5) a {position: absolute; top: 86%; left: 23%; font-size: 19px; }
+/* susținere */ .simple-words h2:nth-child(6) a {position: absolute; top: 38%; right: 18%; font-size: 16px; }
+/* profesionalism */ .simple-words h2:nth-child(7) a {position: absolute; bottom: 41%; right: auto; left: 15%; font-size: 25px; }
+/* tradiție */ .simple-words h2:nth-child(8) a {position: absolute; top: 3%; left: 8%; font-size: 25px; line-height: 1.2; }
+.word-float {transition-duration: .3s; transition-property: transform; transition-timing-function: ease-out; }
+.word-float:active, .word-float:focus, .word-float:hover {transform: translateY(-8px); }
+.word-hover {background-color: #fff; -webkit-transition: background-color .5s; -o-transition: background-color .5s; transition: background-color .5s; transform: translateY(-8px); transition-duration: .3s; transition-property: transform; transition-timing-function: ease-out; }
+.word-wrap1, .word-wrap2, .word-wrap3, .word-wrap4, .word-wrap5, .word-wrap6, .word-wrap7, .word-wrap8 {padding: 15px; border-radius: 4px; margin-bottom: 10px; }
+.link {outline: none; text-decoration: none; position: relative; font-size: 2.3em; line-height: 1; color: #FFF; display: inline-block; }
+.link--kukuri {text-transform: uppercase; font-weight: 900; overflow: hidden; line-height: 1; color: #fff; }
+.link--kukuri:hover {color: #b2b0a9; text-decoration: none; }
+.link--kukuri::after {content: ''; position: absolute; height: 2.3em; width: 100%; top: 0%; margin-top: -8px; right: 0; background: #F9F9F9; transform: translate3d(-100%, 0, 0); transition: transform 0.4s; transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
+.link--kukuri:hover::after {transform: translate3d(100%, 0, 0); text-decoration: none; }
+.link--kukuri::before {content: attr(data-letters); position: absolute; z-index: 2; overflow: hidden; color: #fecf57; white-space: nowrap; width: 0%; transition: width 0.4s 0.3s; }
+.link--kukuri:focus, .link--kukuri:visited {text-decoration: none; color: #fff; }
+.link--kukuri:hover::before {width: 100%; }
+
+
+.headline-playfair {
+  font-family: "Playfair Display", Times New Roman, serif;
+  font-size:59px;
+}
+
+#carousel-obiective {
+
+}
+
+.carousel .item {
+  height: 35em;
+  padding: 55px 24px;
+}
+
+.slider-image {
+  padding: 20px;
+}
+
+
+.homepage-indicators {
+    position: absolute;
+    bottom: auto;
+    top: 24px;
+    left:30px;
+    z-index: 15;
+    width: auto;
+    margin-left: 4px;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.first, .second, .third, .fourth, .fifth {
+  border-radius: 4px;
+}
+.first div h4, .second div h4, .third div h4, .fourth div h4, .fifth div h4 {
+  margin-top: 20px;
+  color:#fff;
+  font-weight: bold;
+}
+.first div p, .second div p, .third div p, .fourth div p, .fifth div p {
+  color:#fff;
+}
+
+.first {
+  background-color: #FF9898;
+  transition: background-color .5s ease-in;
+}
+
+.first div h5{
+  margin-top: 20px;
+}
+
+.first div p {
+  color: #fff;
+}
+
+.margin-top30 {
+  margin-top: 30px !important;
+}
+
+.second {
+  background-color: #4DA620;
+}
+.third {
+  background-color: #2ABADE;
+}
+.fourth {
+  background-color: #8066A7;
+}
+.fifth {
+  background-color: #001c33;
+}
+
+
+
+@media (min-width: 565px) {/*comunicare */ .simple-words h2:nth-child(1) a {font-size: 20px; }
+
+/*conexiune */ .simple-words h2:nth-child(2) a {font-size: 26px; }
+/*informare */ .simple-words h2:nth-child(3) a {font-size: 30px; }
+/*advocacy*/ .simple-words h2:nth-child(4) a {font-size: 30px; }
+/*dezvoltare */ .simple-words h2:nth-child(5) a {font-size: 26px; }
+/*sustinere */ .simple-words h2:nth-child(6) a {right: 15%; font-size: 20px; }
+/* profesionalism */ .simple-words h2:nth-child(7) a {font-size: 30px; }
+/*traditie */ .simple-words h2:nth-child(8) a {/*position: absolute; bottom: 41%; right: 26%; */ font-size: 30px; } }
+
+@media (min-width: 768px) {.simple-words {height: 100vh; }
+/*comunicare */ .simple-words h2:nth-child(1) a {font-size: 18px; }
+/*conexiune */ .simple-words h2:nth-child(2) a {font-size: 24px; }
+/*informare */ .simple-words h2:nth-child(3) a {font-size: 28px; }
+/*advocacy*/ .simple-words h2:nth-child(4) a {right:8%; left: auto; font-size: 28px; }
+/*dezvoltare */ .simple-words h2:nth-child(5) a {font-size: 24px; }
+/*sustinere */ .simple-words h2:nth-child(6) a {font-size: 18px; }
+/* profesionalism */ .simple-words h2:nth-child(7) a {right: auto; left: 8%; font-size: 28px; }
+/*traditie */ .simple-words h2:nth-child(8) a {/*position: absolute; bottom: 41%; right: 26%; */ font-size: 28px; }
+
+.carousel .item {height: 25em; padding: 55px 24px; }
+.slider-image {padding: 15px; }
+}
+
+@media (min-width: 992px) {
+  .simple-words {height: 100%; }
+/*comunicare */ .simple-words h2:nth-child(1) a {left:auto; right: 20%; font-size: 30px; }
+/*conexiune */ .simple-words h2:nth-child(2) a {font-size: 22px; }
+/*informare */ .simple-words h2:nth-child(3) a {font-size: 40px; }
+/*advocacy*/ .simple-words h2:nth-child(4) a {font-size: 40px; }
+/*dezvoltare */ .simple-words h2:nth-child(5) a {font-size: 22px; }
+/*sustinere */ .simple-words h2:nth-child(6) a {font-size: 22px; }
+/* profesionalism */ .simple-words h2:nth-child(7) a {/*position: absolute; bottom: 41%; right: 26%; */ font-size: 40px; }
+/*traditie */ .simple-words h2:nth-child(8) a {/* position: absolute; bottom: 41%; right: 26%; */ font-size: 40px; }
+
+.slider-image {padding: 0px; }
+
+}
+
+@media (min-width: 1064px) {
+  .simple-words {
+    height: 100%;
+  }
+  .headline-playfair {
+
+  }
+  .carousel .item {height: 20em; padding: 55px 24px; }
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  /* profesionalism */
+  .simple-words h2:nth-child(7) a {
+    position: absolute;
+    bottom: 41%;
+    right: 26%;
+    font-size: 40px;
+    }
+    .slider-image {padding: 0px; }
+  }
+
+
+
+
+
+
+
+
+
+
+

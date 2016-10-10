@@ -142,32 +142,32 @@ var melicaJS = {
 
 
     // init big mainpage slider
-    MainSliderInit    : function ($) {
-        'use strict';
+    // MainSliderInit    : function ($) {
+    //     'use strict';
 
-        var $container = $('#slider-container');
+    //     var $container = $('#slider-container');
 
-        $container.on('init', function (evt) {
-            var $slider = $(evt.target),
-                $header = $('#header'),
-                $window = $(window);
+    //     $container.on('init', function (evt) {
+    //         var $slider = $(evt.target),
+    //             $header = $('#header'),
+    //             $window = $(window);
 
-            $(window).on('resize', function () {
-                var height = $window.height() - $header.outerHeight();
-                $slider.find('.slick-slide').css('height', height);
-            }).trigger('resize');
-        });
+    //         $(window).on('resize', function () {
+    //             var height = $window.height() - $header.outerHeight();
+    //             $slider.find('.slick-slide').css('height', height);
+    //         }).trigger('resize');
+    //     });
 
-        $container.slick({
-            arrows       : true,
-            dots         : true,
-            fade         : true,
-            cssEase      : 'linear',
-            autoplay     : true,
-            pauseOnHover : false,
-            autoplaySpeed: 5000
-        });
-    },
+    //     $container.slick({
+    //         arrows       : true,
+    //         dots         : true,
+    //         fade         : true,
+    //         cssEase      : 'linear',
+    //         autoplay     : true,
+    //         pauseOnHover : false,
+    //         autoplaySpeed: 5000
+    //     });
+    // },
 
 
     // regular sliders
@@ -250,37 +250,37 @@ var melicaJS = {
 
 
     // tabs system(based on slick slider)
-    TabsInit          : function ($) {
-        'use strict';
+    // TabsInit          : function ($) {
+    //     'use strict';
 
-        var tabs = $('[data-slick-tabs]');
-        if (!tabs) return;
+    //     var tabs = $('[data-slick-tabs]');
+    //     if (!tabs) return;
 
-        tabs.each(function () {
-            $(this).slick({
-                arrows        : false,
-                adaptiveHeight: true,
-                draggable     : false,
-                touchMove     : false,
-                swipe         : false
-            });
-        });
+    //     tabs.each(function () {
+    //         $(this).slick({
+    //             arrows        : false,
+    //             adaptiveHeight: true,
+    //             draggable     : false,
+    //             touchMove     : false,
+    //             swipe         : false
+    //         });
+    //     });
 
-        $('[data-toggle="slick-tab"]').on('click', function () {
-            var $this = $(this), target = $($this.attr('href'));
+    //     $('[data-toggle="slick-tab"]').on('click', function () {
+    //         var $this = $(this), target = $($this.attr('href'));
 
-            if (!target) return true;
+    //         if (!target) return true;
 
-            // turn slider
-            var slideIndex = target.attr('data-slick-index');
-            target.parents('.slick-slider').slick('slickGoTo', slideIndex);
+    //         // turn slider
+    //         var slideIndex = target.attr('data-slick-index');
+    //         target.parents('.slick-slider').slick('slickGoTo', slideIndex);
 
-            // switch active state
-            $this.parents('li').addClass('active')
-                .siblings().removeClass('active');
-            return false;
-        });
-    },
+    //         // switch active state
+    //         $this.parents('li').addClass('active')
+    //             .siblings().removeClass('active');
+    //         return false;
+    //     });
+    // },
 
 
     // init scroll reveal animations API
@@ -358,96 +358,96 @@ var melicaJS = {
 
 
     // maps API
-    InitGMaps         : function ($) {
-        'use strict';
+    // InitGMaps         : function ($) {
+    //     'use strict';
 
-        if (!google || !google.maps) return;
+    //     if (!google || !google.maps) return;
 
-        // default options for map constructor
-        var defaultOptions = {
-            streetViewControl : false,
-            scrollwheel       : false,
-            panControl        : true,
-            mapTypeControl    : false,
-            overviewMapControl: false,
-            zoomControl       : true,
-            center            : new google.maps.LatLng(40.805478, -73.96522499999998),
-            mapTypeId         : google.maps.MapTypeId.ROADMAP,
-            draggable         : true
-        };
+    //     // default options for map constructor
+    //     var defaultOptions = {
+    //         streetViewControl : false,
+    //         scrollwheel       : false,
+    //         panControl        : true,
+    //         mapTypeControl    : false,
+    //         overviewMapControl: false,
+    //         zoomControl       : true,
+    //         center            : new google.maps.LatLng(40.805478, -73.96522499999998),
+    //         mapTypeId         : google.maps.MapTypeId.ROADMAP,
+    //         draggable         : true
+    //     };
 
         //if(Modernizr.touch) defaultOptions['draggable'] = false;
 
         // loop through elements
-        $('.place-map').each(function (mapIndex) {
-            var $this = $(this),
-                lat = parseFloat($this.data('lat')),
-                long = parseFloat($this.data('long')),
-                infoWindowContent = $this.html();
+    //     $('.place-map').each(function (mapIndex) {
+    //         var $this = $(this),
+    //             lat = parseFloat($this.data('lat')),
+    //             long = parseFloat($this.data('long')),
+    //             infoWindowContent = $this.html();
 
-            $this.html(''); // clear element
+    //         $this.html(''); // clear element
 
-            var elem_id = 'gmap_' + mapIndex;
-            $this.append('<div id="' + elem_id + '" class="embed-responsive-item"/>');
+    //         var elem_id = 'gmap_' + mapIndex;
+    //         $this.append('<div id="' + elem_id + '" class="embed-responsive-item"/>');
 
-            var options = $.extend(defaultOptions, {
-                zoom  : $this.data('zoom') || 14,
-                center: new google.maps.LatLng(lat, long)
-            });
+    //         var options = $.extend(defaultOptions, {
+    //             zoom  : $this.data('zoom') || 14,
+    //             center: new google.maps.LatLng(lat, long)
+    //         });
 
-            var map = new google.maps.Map(document.getElementById(elem_id), options);
-            var marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(lat, long)});
-            var infowindow = new google.maps.InfoWindow({content: infoWindowContent});
+    //         var map = new google.maps.Map(document.getElementById(elem_id), options);
+    //         var marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(lat, long)});
+    //         var infowindow = new google.maps.InfoWindow({content: infoWindowContent});
 
-            google.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-            });
+    //         google.maps.event.addListener(marker, 'click', function () {
+    //             infowindow.open(map, marker);
+    //         });
 
-            google.maps.event.addListenerOnce(map, 'idle', function () {
-                $this.addClass('initialized');
-            });
+    //         google.maps.event.addListenerOnce(map, 'idle', function () {
+    //             $this.addClass('initialized');
+    //         });
 
-            infowindow.open(map, marker);
-        });
-    },
+    //         infowindow.open(map, marker);
+    //     });
+    // },
 
 
     // awesome boxed layout
-    InitMasonry       : function ($) {
-        'use strict';
+    // InitMasonry       : function ($) {
+    //     'use strict';
 
-        if (typeof Masonry === 'undefined') return;
+    //     if (typeof Masonry === 'undefined') return;
 
-        $('[data-masonry]').each(function () {
-            var $this = $(this);
+    //     $('[data-masonry]').each(function () {
+    //         var $this = $(this);
 
-            // reflow elements
-            if ($this.data('masonry-loaded') !== undefined) {
-                $this.masonry('layout');
-                return;
-            } else {
-                setInterval(function() {
-                    if ($this.data('masonry-loaded') !== undefined) {
-                        $this.masonry('layout');
-                    }
-                }, 300);
-            }
+    //         // reflow elements
+    //         if ($this.data('masonry-loaded') !== undefined) {
+    //             $this.masonry('layout');
+    //             return;
+    //         } else {
+    //             setInterval(function() {
+    //                 if ($this.data('masonry-loaded') !== undefined) {
+    //                     $this.masonry('layout');
+    //                 }
+    //             }, 300);
+    //         }
 
-            $this.data('masonry-loaded', true);
+    //         $this.data('masonry-loaded', true);
 
-            // add classes & turn on grid
-            $this.addClass('msnry-row block-grid-xs-1 block-grid-md-' + $this.attr('data-masonry'));
+    //         // add classes & turn on grid
+    //         $this.addClass('msnry-row block-grid-xs-1 block-grid-md-' + $this.attr('data-masonry'));
 
-            // wrap elements
-            $this.find('> *').each(function () {
-                $(this).wrap('<div class="msnry-item"/>');
-            });
+    //         // wrap elements
+    //         $this.find('> *').each(function () {
+    //             $(this).wrap('<div class="msnry-item"/>');
+    //         });
 
-            $this.masonry({
-                itemSelector: '.msnry-item'
-            });
-        });
-    }
+    //         $this.masonry({
+    //             itemSelector: '.msnry-item'
+    //         });
+    //     });
+    // }
 };
 
 
@@ -483,24 +483,26 @@ var melicaJS = {
         melicaJS.HeaderInit($);
 
         melicaJS.InitSR($);
-        melicaJS.InitMagnificPopups($);
-        melicaJS.InitPhotoSets($);
-        melicaJS.InitGMaps($);
+        // melicaJS.InitMagnificPopups($);
+        // melicaJS.InitPhotoSets($);
+        // melicaJS.InitGMaps($);
     });
 
     $(window).on('jqOnLoad', function() {
-        melicaJS.InitMasonry($);
+        // melicaJS.InitMasonry($);
 
         // slick slider dependency check
-        if ($.fn.slick) {
-            melicaJS.MainSliderInit($);
-            melicaJS.InitSliderAPI($);
-            melicaJS.InitSmartSliderAPI($);
-            melicaJS.TabsInit($);
-        }
+        // if ($.fn.slick) {
+        //     melicaJS.MainSliderInit($);
+        //     melicaJS.InitSliderAPI($);
+        //     melicaJS.InitSmartSliderAPI($);
+        //     melicaJS.TabsInit($);
+        // }
     });
 
     $(window).on('jqOnLoad resize', function() {
         melicaJS.StickyFooter($);
     });
 })(jQuery);
+
+
