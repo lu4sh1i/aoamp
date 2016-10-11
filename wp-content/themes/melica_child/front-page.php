@@ -10,10 +10,10 @@ putRevSlider("homepage");
 <section class="obiective">
 <div class="container">
     <div class="col-md-4">
-        <h2 class="headline-playfair margin-top30">Obiectivele noastre principale</h2>
+        <h2 class="headline-obiective margin-top50"><span class="letterspacing-4 brand-color text-uppercase smaller">Obiectivele noastre</span>  principale</h2>
     </div>
     <div class="col-md-8">
-       <div id="carousel-obiective" class="carousel" data-ride="carousel">
+       <div id="carousel-obiective" class="carousel " data-ride="carousel">
       <!-- Indicators -->
 
       <ol class="carousel-indicators homepage-indicators">
@@ -31,47 +31,47 @@ putRevSlider("homepage");
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active first">
-            <div class="col-md-8 animated fadeInUp">
+            <div class="col-md-8">
                 <h4>Promovarea activităților economice ale membrilor săi</h4>
                 <p>Identificarea de oportunitati pentru consolidarea, dezvoltarea si extinderea afacerilor existente si stabilirea de parteneriate in vederea internationalizarii afacerilor. Oferirea de consultanta inclusiv cu privire  la perspectivele economice, juridice si sociale.</p>
             </div>
-            <div class="col-md-4 animated fadeIn">
+            <div class="col-md-4">
                 <img src="wp-content/themes/melica_child/img/promo@2x.png" class="img-responsive slider-image" >
             </div>
         </div>
         <div class="item second">
-            <div class="col-md-8 animated fadeInUp">
+            <div class="col-md-8">
                 <h4>Accesarea de fonduri și realizarea unor proiecte care se încadrează în obiectivele Asociației</h4>
                 <p>Adica: accesarea de fonduri si mecanisme de finantare in vederea realizarii unor proiecte de catre membrii asociatiei. Prioritare sunt proiectele care contribuie la realizarea obiectivelor AOAMP</p>
             </div>
-            <div class="col-md-4 animated fadeIn">
+            <div class="col-md-4">
                 <img src="wp-content/themes/melica_child/img/funds@2x.png" class="img-responsive slider-image " >
             </div>
         </div>
         <div class="item third">
-            <div class="col-md-8 animated fadeInUp">
+            <div class="col-md-8">
                 <h4>Realizarea unei platforme de analiză</h4>
                 <p>Realizarea unei platforme de analiză a problemelor cu care se confruntă oamenii de afaceri moldoveni în activitatea lor investiţională şi comercială, propunând totodată și modalități concrete de rezolvare a problemelor, în cadrul colaborării cu instituţiile oficiale din Moldova, din România dar și din state terțe</p>
             </div>
-            <div class="col-md-4 animated fadeIn">
+            <div class="col-md-4">
                 <img src="wp-content/themes/melica_child/img/graph-2@2x.png" class="img-responsive slider-image" alt="" >
             </div>
         </div>
         <div class="item fourth">
-            <div class="col-md-8 animated fadeInUp">
+            <div class="col-md-8">
                 <h4>Organizarea unui sistem de consultații</h4>
                 <p>Organizarea unui sistem de consultații și sprijin acordat potenţialilor oameni de afaceri moldoveni care doresc sa investească sau să desfăşoare o activitate comercială în afara Moldovei</p>
             </div>
-            <div class="col-md-4 animated fadeIn">
+            <div class="col-md-4">
                 <img src="wp-content/themes/melica_child/img/consultatii-2@2x.png" class="img-responsive slider-image" alt="">
             </div>
         </div>
         <div class="item fifth">
-            <div class="col-md-8 animated fadeInUp">
+            <div class="col-md-8">
                 <h4>Bază de date</h4>
                 <p>Crearea unei baze de date cu informații relevante economice, sociale și politice utile oamenilor de afaceri moldoveni privind perspectivele economice, cadrul legislativ și cele mai noi rapoarte financiare</p>
             </div>
-            <div class="col-md-4 animated fadeIn">
+            <div class="col-md-4">
                 <img src="wp-content/themes/melica_child/img/folders@2x.png" class="img-responsive slider-image"  alt="" >
             </div>
         </div>
@@ -87,7 +87,7 @@ putRevSlider("homepage");
 </div>
 
 </section>
-
+<div id="avantaje" style="height: 90px">&nbsp;</div>
 <section style="background-color:#222; padding: 20px" class="avantaje-aoamp">
     <div class="container-fluid" >
         <h2 class="text-center">DE CE SĂ DEVII MEMBRU AOAMP?</h2>

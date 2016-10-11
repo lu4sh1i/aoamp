@@ -30,6 +30,10 @@
   background-color: #2B3041;
 }
 
+.brand-color {
+  color:#C9A640;
+}
+
 #header + *:not(.header-nomargin) {
      margin-top: -11px;
 }
@@ -263,7 +267,6 @@ input.footer-cf7 {
   margin: 65px 0;
 }
 
-
 .event-date-container {
   position: absolute;
   z-index: 99;
@@ -324,10 +327,23 @@ input.footer-cf7 {
 .link--kukuri:hover::before {width: 100%; }
 
 
-.headline-playfair {
-  font-family: "Playfair Display", Times New Roman, serif;
-  font-size:59px;
+.headline-obiective {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 8px;
+  text-transform: uppercase;
 }
+
+.headline-obiective .smaller {
+  font-size:28px;
+  font-weight: normal;
+  font-family: "Playfair Display", Times New Roman, serif;
+}
+
+.letterspacing-4 {
+  letter-spacing: 4px;
+}
+
 
 #carousel-obiective {
 
@@ -336,6 +352,14 @@ input.footer-cf7 {
 .carousel .item {
   height: 35em;
   padding: 55px 24px;
+}
+
+.carousel-indicators li {
+  margin-right: 15px;
+}
+
+.carousel-indicators .active {
+  margin-right: 15px;
 }
 
 .slider-image {
@@ -383,6 +407,10 @@ input.footer-cf7 {
 
 .margin-top30 {
   margin-top: 30px !important;
+}
+
+.margin-top50 {
+  margin-top: 50px !important;
 }
 
 .second {
@@ -443,7 +471,7 @@ input.footer-cf7 {
   .simple-words {
     height: 100%;
   }
-  .headline-playfair {
+  .headline-obiective {
 
   }
   .carousel .item {height: 20em; padding: 55px 24px; }
