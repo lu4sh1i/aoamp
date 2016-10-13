@@ -1,3 +1,8 @@
+<?php
+	global $wp;
+	$current_url = home_url(add_query_arg(array(),$wp->request));
+ ?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="<?php echo melica_html_class() ?>">
 <head>
@@ -11,9 +16,8 @@
 	<meta name="keywords" content="<?php echo esc_attr( melica_opt( 'seo_keywords' ) ) ?>">
 	<meta name="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ) ?>">
 	<meta name="author" content="<?php echo esc_attr( get_the_author() ) ?>">
-	<meta property="og:type" content="<?php if (is_single( )) {
-		echo "article";
-	} else echo "business.business" ?>" />
+
+
 	<!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/g/html5shiv@3.7,respond@1.4"></script><![endif]-->
 
 	<?php if(melica_opt('enable_reveals', false)): ?>
@@ -27,6 +31,7 @@
 	<?php endif ?>
 
 	<?php wp_head() ?>
+
 </head>
 
 <body <?php body_class() ?>>
