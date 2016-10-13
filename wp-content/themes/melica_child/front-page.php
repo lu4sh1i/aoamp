@@ -89,7 +89,7 @@ putRevSlider("homepage");
 </section>
 <div id="avantaje" style="height: 90px">&nbsp;</div>
 <section style="background-color:#222; padding: 20px" class="avantaje-aoamp">
-    <div class="container-fluid" >
+    <div class="container" >
         <h2 class="text-center">DE CE SĂ DEVII MEMBRU AOAMP?</h2>
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                        <div class="words-wrapper">

@@ -2,54 +2,46 @@
 
 <div class="events-bg"> <div class="dark-bg"></div> </div>
 
+<div class="container content-wrap">
+	<div class="white-bg">
 
-	<div class="container">
 		<?php
-		if (have_posts()) {
-			$postcount = 0;
-			while ( have_posts() ) : the_post();
+			if (have_posts()) {
+				$postcount = 0;
+				while ( have_posts() ) : the_post();
 
+				$dateformatstring = "M, Y";
+				$unixtimestamp = strtotime(get_field('event_date'));
 		?>
-		<div class="eveniment col-xs-4">
-		<div class="event-date-container">
-		    <?php
+		<div class="row event">
+				 <article <?php post_class(); ?>>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<?php
+						if (get_field('event_date')) {
+							// if set, collect the date
+							$datenr = date('d', $unixtimestamp);
+							$datemonth = date('M', $unixtimestamp);
+							$year = date('Y', $unixtimestamp);
 
-		        $dateformatstring = "d M, Y";
-		        $unixtimestamp = strtotime(get_field('event_date'));
-
-		        if (get_field('event_date')) {
-		                echo '<h4 class="event-date">';
-		                echo date_i18n($dateformatstring, $unixtimestamp);
-		                echo '</h4>';
-		            }
-		            else {
-		                echo "";
-		            }
-
-
-		    ?>
-		</div>
-			 <article <?php post_class(); ?>>
-			 	<?php get_template_part( 'inc/event-header', melica_get_pf_template() ); ?>
-			 	<div class="meta">
-			 		<h1><a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>"><?php the_title() ?></a></h1>
-					<div class="subline">
-							<time datetime="<?php the_time( 'Y-m-d' ) ?>"><?php the_time( 'F j, Y' ) ?></time>
-							<span><?php printf(__( 'De <a href="%s">%s</a>', MELICA_LG ), esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() ) ?></span>
+							// output the date
+							$output = "<h3 class=\"date-number\">" . $datenr . "</h3>";
+							$output .= "<p class=\"month-year\">" . $datemonth . "<br>";
+							$output .= $year . "</p>";
+							echo $output;
+			            }
+			            else {
+			                echo "";
+			            }
+		             ?>
 					</div>
-				</div>
-				<div class="text-left read-more">
-					<a class="btn btn-primary small" href="<?php the_permalink() ?>"><?php _e( 'Vezi Mai Mult', MELICA_LG ) ?></a>
-				</div>
-			 </article>
-
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<div class="event-wrapper">
+							<h2><a href="<?php the_permalink(); ?>" class="event-title"><?php the_title(); ?></a></h2>
+							<a href="<?php the_permalink(); ?>" class="text-uppercase letterspacing-4 btn-slim"><?php _e("Vezi Eveniment"); ?></a>
+						</div>
+					</div>
+				 </article>
 		</div>
-		<?php
-			$postcount++;
-			if ($postcount % 3 == 0) { ?>
-				<div class="clearfix"></div>
-		<?php } ?>
-
 	 <?php
 	endwhile;
 	} else {
@@ -63,9 +55,10 @@
 	}
   ?>
 
+	</div>
 </div>
 
 
 <?php
-get_footer();
+	get_footer();
 ?>

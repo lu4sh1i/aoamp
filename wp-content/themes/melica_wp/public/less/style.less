@@ -48,11 +48,6 @@
 
 
 
-
-
-
-
-
 /* ============================================================================= */
 /* Base settings */
 /* ============================================================================= */
@@ -158,11 +153,6 @@ body { padding-top: @header-height; }
 
 
 
-
-
-
-
-
 /* ============================================================================= */
 /* Social icons */
 /* ============================================================================= */
@@ -198,10 +188,6 @@ ul.socials-list.invert li {
   a { color : #fff; }
   .fa { background-color : lighten(@gray-light, 20%); }
 }
-
-
-
-
 
 
 
@@ -532,7 +518,6 @@ ul.socials-list.invert li {
 
     /* hover state */
     .no-touch &:hover {
-      .box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.12));
       header:not(.nohover) { .opacity(0.75); }
     }
   }
@@ -640,6 +625,30 @@ ul.socials-list.invert li {
 
   /* twitter status format */
   &.format-status .contents.is-twitter * { color: #2d9adb; }
+}
+
+
+.single-events {
+  .dark-bg {
+    height: 40vh;
+    h1 {
+      padding-top: 40px;
+    }
+  }
+  .event-container {
+    background-color: #fff;
+    transform: translateY(-30px);
+    padding: 40px;
+    .date-number {
+      margin-top: 0;
+      padding: 0 20px 0 0;
+    }
+    .event-meta {
+        .posted {
+          font-size: 12px;
+        }
+      }
+  }
 }
 
 /* tags listing */

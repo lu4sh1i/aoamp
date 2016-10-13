@@ -141,13 +141,13 @@
 
 .aoamp-footer {
   margin-top: 0 !important;
-  background-image: url("http://www.aoamp.com/wp-content/uploads/2016/10/footer-bg.png");
+  /*background-image: url("http://www.aoamp.com/wp-content/uploads/2016/10/footer-bg.png");*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   padding:50px 0;
   background-color: #222;
-  box-shadow: inset 0px 22px 70px -10px;
+  /*box-shadow: inset 0px 22px 70px -10px;*/
   background-attachment: fixed;
 }
 
@@ -427,6 +427,72 @@ input.footer-cf7 {
 }
 
 
+/* events styles */
+
+.date-number {
+  font-family: "Playfair Display", serif;
+  font-size: 62px;
+  padding: 0 20px;
+  display: inline-block;
+  color:#c9a640;
+}
+
+.serif {
+  font-family: "Playfair Display", serif;
+}
+
+.event-title {
+  color: black;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+}
+
+.event-title.larger {
+  font-size: 48px;
+}
+
+.content-wrap {
+  max-width: 980px
+}
+
+.event-wrapper .btn-slim {
+  margin-top: 30px;
+  display: inline-block;
+  color: #000;
+}
+
+.btn-slim {
+  padding: 9px 39px;
+  border:1px solid black;
+}
+
+.event {
+  padding: 40px 0;
+  border-bottom: 1px dotted #ddd;
+}
+
+.white-bg {
+  background-color: #fff;
+}
+
+.content-wrap .white-bg {
+  background-color: #fff;
+  padding: 20px 60px;
+}
+.month-year {
+  display: inline-block;
+  border-left: 1px solid black;
+  padding-left: 20px;
+  transform: translateY(3px);
+}
+
+.margin0 {
+  margin: 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
 
 @media (min-width: 565px) {/*comunicare */ .simple-words h2:nth-child(1) a {font-size: 20px; }
 
@@ -487,7 +553,6 @@ input.footer-cf7 {
     }
     .slider-image {padding: 0px; }
   }
-
 
 
 

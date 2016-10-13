@@ -7,10 +7,13 @@
 	<?php if ( melica_opt( 'favicon', false ) ): ?>
 		<link rel="shortcut icon" href="<?php echo esc_url( melica_opt( 'favicon' ) ) ?>">
 	<?php endif ?>
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<title><?php wp_title( '|', true, 'right' ); echo get_bloginfo( 'name' ) ?></title>
 	<meta name="keywords" content="<?php echo esc_attr( melica_opt( 'seo_keywords' ) ) ?>">
 	<meta name="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ) ?>">
 	<meta name="author" content="<?php echo esc_attr( get_the_author() ) ?>">
+	<meta property="og:type" content="<?php if (is_single( )) {
+		echo "article";
+	} else echo "business.business" ?>" />
 	<!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/g/html5shiv@3.7,respond@1.4"></script><![endif]-->
 
 	<?php if(melica_opt('enable_reveals', false)): ?>

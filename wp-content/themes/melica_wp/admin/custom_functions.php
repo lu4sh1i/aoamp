@@ -246,7 +246,7 @@ function melica_add_post_class($classes) {
 
 	if(!is_single() && !is_page()) $classes[] = 'short-story';
 	if(!is_page()) $classes[] = 'post-entry';
-	$classes[] = 'box';
+	$classes[] = 'white-bg';
 
 	return $classes;
 }
